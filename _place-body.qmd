@@ -1,0 +1,89 @@
+
+Now with OJS!
+
+```{ojs}
+//| label: get-station-name
+
+stationId = document
+  .querySelector("meta[name=isithotrightnow-station]")
+  .getAttribute("data-station")
+```
+
+Station ID is ${stationId} 🥳
+
+This next part where I get the stats file doesn't work because of CORS 😭
+
+```{ojs}
+//| label: load-data
+
+bucket_base = "https://isithot-data.s3.ap-southeast-2.amazonaws.com/www/"
+
+FA = FileAttachment
+stats = FA(bucket_base + "stats/stats_009021.json").json()
+
+stats
+```
+
+But let's do a test of a CSV from GitHub, since our bucket CORS needs a fix:
+
+```{ojs}
+//| label: test-json
+
+test_url_base = "https://raw.githubusercontent.com/360-info/tracker-ocean-temperatures"
+
+teststats = FA(test_url_base + "/main/data/monthly/southern_ocean.csv").csv()
+```
+
+::::::{.column-screen style="background: #eee"}
+:::::{.column-body}
+
+# Here's how today compares...
+
+::::{.grid}
+:::{.g-col-12 .g-col-md-4}
+Today's maximum temperature so far is **32.5 °C**, and the minimum overnight was **11.7 °C**. The average of the two is **22.1 °C**, which is hotter than **89%** of daily average temperatures at **Richmond RAAF** for this time of year over the period 1939–2021. The really hot and cold days (top and bottom 5%, respectively) are outside the dotted lines. 
+:::
+:::{.g-col-12 .g-col-md-8}
+```{ojs}
+//| label: ts
+//| classes: iihrn-figure
+//| echo: false
+md`![](${bucket_base + "plots/timeseries/timeseries-" + stationId + ".png"})`
+```
+:::
+::::
+
+::::{.grid style="margin-top: 2rem;"}
+:::{.g-col-12 .g-col-md-4}
+This is the distribution of temperatures typical for this time of year, which we've defined as a seven day window either side of today. Just like a bell curve, the plot is higher at more common temperatures and lower at rare temperatures.
+:::
+:::{.g-col-12 .g-col-md-8}
+```{ojs}
+//| label: dist
+//| classes: iihrn-figure
+//| echo: false
+md`![](${bucket_base + "plots/distribution/distribution-" + stationId + ".png"})`
+```
+:::
+::::
+
+:::::
+::::::
+
+
+:::::{.column-screen style="background: #ddd"}
+::::{.column-body .container}
+
+# ... and the rest of the year.
+
+We've compared every day this year at **Richmond RAAF** to similar times of year in the past. Red days were hot compared to records; blue days were cold. 
+
+```{ojs}
+//| label: hw
+//| classes: iihrn-figure
+//| echo: false
+md`![](${bucket_base + "plots/heatwave/heatwave-" + stationId + ".png"})`
+```
+
+::::
+:::::

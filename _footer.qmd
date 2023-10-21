@@ -1,0 +1,9 @@
+:::{.column-body .iihrn-footer}
+
+By [Mat Lipson](https://theurbanist.com.au/about), [Steefan Contractor](https://steefancontractor.github.io/my_website/) and [James Goldie](https://jamesgoldie.dev/).
+
+[Get in touch!](isithotrightnow@gmail.com)
+
+Our data comes from the Bureau of Meteorology's [ACORN-SAT](http://www.bom.gov.au/climate/change/acorn-sat/ ) and latest xml feeds. Our plots are [free to share for non-commercial purposes](https://isithotrightnow.com/licence).
+
+:::

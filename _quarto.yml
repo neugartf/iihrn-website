@@ -1,0 +1,20 @@
+project:
+  type: website
+  pre-render: populate-places.ts
+
+website:
+  title: "Is it hot right now?"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme:
+      - default
+      - style.scss
+
+
+

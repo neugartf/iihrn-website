@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+
+/*-- scss:uses --*/
+
+/*-- scss:functions --*/
+
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: "Roboto Condensed";
+
+/* -- scss:mixins --*/
+
+/*-- scss:rules --*/
+
+main {
+
+  h1 {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .iihrn-figure {
+    img {
+      width: 100%;
+    }
+  }
+
+  .iihrn-footer {
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
