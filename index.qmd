@@ -2,6 +2,22 @@
 title: "Is it hot right now?"
 ---
 
-This is a Quarto website.
+```{ojs}
+//| label: load-map-data
+import { aq, op } from "@uwdata/arquero"
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+bucket_base = "https://isithot-data.s3.ap-southeast-2.amazonaws.com/www/"
+
+stats = await aq.loadJSON(bucket_base + "stats/stats_all.json")
+stats
+
+places = await aq.loadJSON("locations.json")
+places
+
+// join the two by station id
+```
+
+```{ojs}
+//| label: draw-map
+
+```
