@@ -1,43 +1,45 @@
 
-Now with OJS!
+::::::{.column-screen style="height: 95svh;"}
+:::::{.column-body style="display: flex; flex-flow: column nowrap; justify-content: space-around; text-align: center; font-weight: bold; font-size: 200%;"}
+
+Is it hot in ${stats.isit_label} right now?
+
+${stats.isit_answer}
+
+${stats.isit_comment}
+
+```{=html}
+  <a href="#detail">
+    <i class="bi bi-arrow-down-circle-fill"></i>
+    <p>Dig deeper</p>
+  </a>
+```
+
 
 ```{ojs}
 //| label: get-station-name
-
+//| echo: false
 stationId = document
   .querySelector("meta[name=isithotrightnow-station]")
   .getAttribute("data-station")
 ```
 
-Station ID is ${stationId} 🥳
-
-This next part where I get the stats file doesn't work because of CORS 😭
-
 ```{ojs}
 //| label: load-data
-
+//| echo: false
 bucket_base = "https://isithot-data.s3.ap-southeast-2.amazonaws.com/www/"
 
 FA = FileAttachment
 stats = FA(bucket_base + "stats/stats_009021.json").json()
-
-stats
 ```
 
-But let's do a test of a CSV from GitHub, since our bucket CORS needs a fix:
-
-```{ojs}
-//| label: test-json
-
-test_url_base = "https://raw.githubusercontent.com/360-info/tracker-ocean-temperatures"
-
-teststats = FA(test_url_base + "/main/data/monthly/southern_ocean.csv").csv()
-```
+:::::
+::::::
 
 ::::::{.column-screen style="background: #eee"}
 :::::{.column-body}
 
-# Here's how today compares...
+# Here's how today compares... {#detail}
 
 ::::{.grid}
 :::{.g-col-12 .g-col-md-4}
