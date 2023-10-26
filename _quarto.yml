@@ -1,5 +1,8 @@
 project:
   type: website
+  resources:
+    - "assets/australia.geojson"
+    - "locations.json"
 
 website:
   title: "Is it hot right now?"
