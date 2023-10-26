@@ -4,6 +4,8 @@ title: "Is it hot right now?"
 
 ```{ojs}
 //| label: load-map-data
+//| echo: false
+
 import { aq, op } from "@uwdata/arquero"
 
 bucket_base = "https://isithot-data.s3.ap-southeast-2.amazonaws.com/www/"
@@ -15,48 +17,99 @@ statsObj = FA(bucket_base + "stats/stats_all.json").json()
 // need an array with an id field. let's move the ids in
 stats = {
   const statsArray = []
-  Object.keys(statsObj).map(k => {
-    console.log("k: ", k)
-    console.log("statsObj[k]:", statsObj[k])
-    statsArray.push({...statsObj[k], id: k})}
-    )
+  Object.keys(statsObj).map(k => statsArray.push({...statsObj[k], id: k}))
   return(aq.from(statsArray))
 }
 
 // here's the station metadata
 places = await aq.loadJSON("locations.json")
-places
+
+joinedPlaces = places.
+  join(stats)
+  .derive({
+    lat: d => op.parse_float(d.lat),
+    lon: d => op.parse_float(d.lon),
+    isit_average: d => op.parse_float(d.isit_average)
+  })
+  .objects()
 ```
 
 ```{ojs}
 //| label: draw-map
+//| classes: iihrn-map
+//| echo: false
 
-bertin = require("bertin")
+australia = FileAttachment("assets/australia.geojson").json()
 
-aus_outline = FileAttachment("assets/australia.geojson").json()
+Plot = import("https://esm.run/@observablehq/plot")
 
-bertin.draw({
-  params: {},
-  layers: [
-    {
-      type: "layer",
-      geojson: places.join(stats).objects(),
-      fill: "#1f0754",
-      stroke: "#1f0754",
-      strokeWidth: 2,
-      // symbol: "square",
-      symbol_size: 40
-    },
-    {
-      type: "layer",
-      geojson: aus_outline,
-      fill: "white",
-      stroke: "#dddddd",
-      strokeWidth: 1.5
-    }
-  ]
+answer_domain = [
+  "Hell no!",
+  "No!",
+  "Nope",
+  "Not really",
+  "Yup",
+  "Yeah!",
+  "Hell yeah!"]
+
+Plot.plot({
+  projection: {
+    type: "equirectangular",
+    rotate: [-133, 28],
+    domain: d3.geoCircle().center([133, -28]).radius(20)()
+  },
+  marks: [
+    // Plot.graticule(),
+    Plot.geo(australia, {
+      // fill: "#ff000033",
+      stroke: "#dddddd"
+    }),
+    Plot.dot(joinedPlaces, {
+      x: "lon",
+      y: "lat",
+      fill: "isit_average",
+      stroke: "black",
+      r: "isit_answer",
+      symbol: "isit_answer",
+      channels: {
+        isit_answer: "isit_answer",
+        isit_comment: "isit_comment",
+        label: "label"
+      },
+      tip: true
+    }),
+    // Plot.tip(joinedPlaces, Plot.pointer({
+    //   x: "lon",
+    //   y: "lat"
+    // }))
+  ],
+  color: {
+    type: "diverging",
+    scheme: "BuRd",
+    domain: [0, 100]
+    // type: "ordinal",
+    // domain: answer_domain,
+    // range: ["#2166ac",
+    //         "#67a9cf",
+    //         "#d1e5f0",
+    //         "#f7f7f7",
+    //         "#fddbc7",
+    //         "#ef8a62",
+    //         "#b2182b"]
+  },
+  r: {
+    type: "ordinal",
+    domain: answer_domain,
+    range: [8, 6, 6, 6, 6, 6, 8]
+  },
+  symbol: {
+    type: "ordinal",
+    domain: answer_domain,
+    range: ["square", "circle", "circle", "circle", "circle", "circle",
+      "square"]
+  },
+  height: 600
 })
-
 
 ```
 
