@@ -1,10 +1,23 @@
 ---
-title: "Is it hot right now?"
+pagetitle: "Is it hot right now?"
 ---
+
+::::{.column-page}
+::::{.grid style="height: 80svh;"}
+:::{.g-col-12 .g-col-md-6}
+
+
+:::{style="display:flex; flex-direction: column; justify-content: center; height: 100%;"}
+# Title here, but it's a bit longer than usual, interestingly
+:::
+
+:::
+:::{.g-col-12 .g-col-md-6 style="display: flex; flex-direction: column; justify-content: center;"}
 
 ```{ojs}
 //| label: load-map-data
 //| echo: false
+//| error: false
 
 import { aq, op } from "@uwdata/arquero"
 
@@ -38,6 +51,7 @@ joinedPlaces = places.
 //| label: draw-map
 //| classes: iihrn-map
 //| echo: false
+//| error: false
 
 australia = FileAttachment("assets/australia.geojson").json()
 
@@ -61,17 +75,24 @@ Plot.plot({
   marks: [
     // Plot.graticule(),
     Plot.geo(australia, {
-      // fill: "#ff000033",
+      fill: "#00000005",
       stroke: "#dddddd"
     }),
     Plot.dot(joinedPlaces, {
       x: "lon",
       y: "lat",
-      fill: "isit_average",
-      stroke: "black",
+      fill: "isit_answer",
+      fillOpacity: 0.6,
+      stroke: d =>
+        d.isit_answer == "Hell no!" || d.isit_answer == "Hell yeah!" ?
+        "black" :
+        "#00000066",
+      strokeWidth: 0.75,
       r: "isit_answer",
       symbol: "isit_answer",
+      href: d => "/places/" + d.url,
       channels: {
+        // isit_average: "isit_average",
         isit_answer: "isit_answer",
         isit_comment: "isit_comment",
         label: "label"
@@ -84,33 +105,34 @@ Plot.plot({
     // }))
   ],
   color: {
-    type: "diverging",
-    scheme: "BuRd",
-    domain: [0, 100]
-    // type: "ordinal",
-    // domain: answer_domain,
-    // range: ["#2166ac",
-    //         "#67a9cf",
-    //         "#d1e5f0",
-    //         "#f7f7f7",
-    //         "#fddbc7",
-    //         "#ef8a62",
-    //         "#b2182b"]
+    // type: "threshold",
+    // domain: [0, 5, 20, 40, 60, 80, 95, 100],
+    type: "ordinal",
+    domain: answer_domain,
+    range: ["#2166ac",
+            "#67a9cf",
+            "#d1e5f0",
+            "#f7f7f7",
+            "#fddbc7",
+            "#ef8a62",
+            "#b2182b"]
   },
   r: {
     type: "ordinal",
     domain: answer_domain,
-    range: [8, 6, 6, 6, 6, 6, 8]
+    range: [8, 5, 5, 5, 5, 5, 8]
   },
   symbol: {
     type: "ordinal",
     domain: answer_domain,
-    range: ["square", "circle", "circle", "circle", "circle", "circle",
-      "square"]
+    range: ["triangle", "circle", "circle", "circle", "circle", "circle",
+      "triangle"]
   },
   height: 600
 })
 
 ```
 
-
+:::
+::::
+:::::
