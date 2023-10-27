@@ -97,12 +97,32 @@ Plot.plot({
         isit_comment: "isit_comment",
         label: "label"
       },
-      tip: true
+      // tip: true
     }),
-    // Plot.tip(joinedPlaces, Plot.pointer({
-    //   x: "lon",
-    //   y: "lat"
-    // }))
+    Plot.tip(joinedPlaces, Plot.pointer({
+      x: "lon",
+      y: "lat",
+      channels: {
+        // isit_average: "isit_average",
+        label: {
+          label: "",
+          value: "label"
+        },
+        isit_answer: {
+          label: "",
+          value: "isit_answer"
+        },
+        isit_comment: {
+          label: "",
+          value: "isit_comment"
+        }
+      },
+      fontSize: 20,
+      format: {
+        x: null,
+        y: null
+      }
+    }))
   ],
   color: {
     // type: "threshold",
