@@ -1,5 +1,5 @@
 ---
-title: "{{NAME}} - Is it hot right now?"
+pagetitle: "{{NAME}} - Is it hot right now?"
 format:
   html:
     include-in-header:
