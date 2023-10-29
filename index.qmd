@@ -2,13 +2,17 @@
 pagetitle: "Is it hot right now?"
 ---
 
+```{ojs}
+everythingLoaded = australia && aq && joinedPlaces
+```
+
 ::::{.column-page}
 ::::{.grid style="height: 80svh;"}
 :::{.g-col-12 .g-col-md-6}
 
 
 :::{style="display:flex; flex-direction: column; justify-content: center; height: 100%;"}
-# Title here, but it's a bit longer than usual, interestingly
+# ${joinedPlaces ? "Loaded! Some sort statement about conditions nationally..." : "Loading..."}
 :::
 
 :::
@@ -42,7 +46,10 @@ joinedPlaces = places.
   .derive({
     lat: d => op.parse_float(d.lat),
     lon: d => op.parse_float(d.lon),
-    isit_average: d => op.parse_float(d.isit_average)
+    isit_average: d => op.parse_float(d.isit_average),
+    // current? (that's the actual avg temp)
+    isit_maximum: d => op.parse_float(d.isit_maximum),
+    isit_minimum: d => op.parse_float(d.isit_minimum)
   })
   .objects()
 ```
@@ -82,60 +89,51 @@ Plot.plot({
       x: "lon",
       y: "lat",
       fill: "isit_answer",
-      fillOpacity: 0.6,
       stroke: d =>
         d.isit_answer == "Hell no!" || d.isit_answer == "Hell yeah!" ?
         "black" :
-        "#00000066",
+        "#00000099",
       strokeWidth: 0.75,
       r: "isit_answer",
       symbol: "isit_answer",
       href: d => "/places/" + d.url,
-      channels: {
-        // isit_average: "isit_average",
-        isit_answer: "isit_answer",
-        isit_comment: "isit_comment",
-        label: "label"
-      },
-      // tip: true
     }),
     Plot.tip(joinedPlaces, Plot.pointer({
       x: "lon",
       y: "lat",
       channels: {
-        // isit_average: "isit_average",
         label: {
           label: "",
-          value: "label"
+          value: d => d.label + ": " + d.isit_comment
         },
-        isit_answer: {
-          label: "",
-          value: "isit_answer"
+        isit_maximum: {
+          label: "Max:",
+          value: d => d.isit_maximum + "°C"
         },
-        isit_comment: {
-          label: "",
-          value: "isit_comment"
+        isit_minimum: {
+          label: "Min:",
+          value: d => d.isit_minimum + "°C"
         }
       },
       fontSize: 20,
+      fontFamily: "Roboto Condensed",
       format: {
         x: null,
         y: null
-      }
+      },
+      lineWidth: 20
     }))
   ],
   color: {
-    // type: "threshold",
-    // domain: [0, 5, 20, 40, 60, 80, 95, 100],
     type: "ordinal",
     domain: answer_domain,
-    range: ["#2166ac",
-            "#67a9cf",
-            "#d1e5f0",
-            "#f7f7f7",
-            "#fddbc7",
-            "#ef8a62",
-            "#b2182b"]
+    range: ["#2166acff",
+            "#67a9cfbb",
+            "#d1e5f0bb",
+            "#f7f7f7bb",
+            "#fddbc7bb",
+            "#ef8a62bb",
+            "#b2182bff"]
   },
   r: {
     type: "ordinal",
@@ -156,3 +154,5 @@ Plot.plot({
 :::
 ::::
 :::::
+
+{{< include /_footer.qmd >}}

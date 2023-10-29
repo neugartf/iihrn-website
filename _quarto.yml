@@ -9,12 +9,6 @@ website:
   search: false
   navbar:
     background: "#ffffff"
-
-    # left:
-    #   # - href: index.qmd
-    #   #   text: Home
-    #   # - about.qmd
-
 format:
   html:
     theme:

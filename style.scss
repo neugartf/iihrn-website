@@ -26,11 +26,25 @@ main {
   }
 
   .iihrn-footer {
-    margin-top: 2rem;
     text-align: center;
+    
+    padding-block: 2rem;
+    background-color: #333333;
+    color: #e7e9ef;
+    
+    a {
+      font-weight: bold;
+      text-decoration: underline;
+      color: #e7e9ef;
+    }
   }
 
   .iihrn-map svg {
     margin-inline: auto;
+  }
+
+  // hide code chunks and ojs errors
+  .sourceCode, .callout-important {
+    display: none;
   }
 }

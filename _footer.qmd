@@ -1,4 +1,5 @@
-:::{.column-body .iihrn-footer}
+::::{.column-screen .iihrn-footer}
+:::{.column-body}
 
 By [Mat Lipson](https://theurbanist.com.au/about), [Steefan Contractor](https://steefancontractor.github.io/my_website/) and [James Goldie](https://jamesgoldie.dev/).
 
@@ -7,3 +8,4 @@ By [Mat Lipson](https://theurbanist.com.au/about), [Steefan Contractor](https://
 Our data comes from the Bureau of Meteorology's [ACORN-SAT](http://www.bom.gov.au/climate/change/acorn-sat/ ) and latest xml feeds. Our plots are [free to share for non-commercial purposes](https://isithotrightnow.com/licence).
 
 :::
+::::
