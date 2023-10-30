@@ -30,7 +30,7 @@ stationId = document
 bucket_base = "https://isithot-data.s3.ap-southeast-2.amazonaws.com/www/"
 
 FA = FileAttachment
-stats = FA(bucket_base + "stats/stats_009021.json").json()
+stats = FA(bucket_base + "stats/stats_" + stationId + ".json").json()
 ```
 
 :::::
