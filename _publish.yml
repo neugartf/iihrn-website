@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 0466d3a6-fa2e-4e24-8a5d-f01bef50c81f
+      url: 'https://roaring-crostata-c66c31.netlify.app'
