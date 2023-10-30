@@ -4,9 +4,25 @@
 
 Is it hot in ${stats.isit_label} right now?
 
-${stats.isit_answer}
+```{ojs}
+//| label: answer
+
+answers = ({
+  "Hell no!":   {color: "#2166acff", fill: "transparent"},
+  "No!":        {color: "#67a9cfbb", fill: "transparent"},
+  "Nope":       {color: "#333333",   fill: "#d1e5f0bb"},
+  "Not really": {color: "#333333",   fill: "#f7f7f7bb"},
+  "Yup":        {color: "#333333",   fill: "#fddbc7"},
+  "Yeah!":      {color: "#ef8a62bb", fill: "transparent"},
+  "Hell yeah!": {color: "#b2182bff", fill: "transparent"}
+})
+
+html`<span class="iihrn-answer" style="background-color: ${answers[stats.isit_answer].fill}; color: ${answers[stats.isit_answer].color};">${stats.isit_answer}</span>`
+```
 
 ${stats.isit_comment}
+
+
 
 ```{=html}
   <a href="#detail">

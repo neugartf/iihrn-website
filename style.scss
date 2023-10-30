@@ -8,6 +8,8 @@
 
 $font-family-sans-serif: "Roboto Condensed";
 
+$link-color: #333333;
+
 /* -- scss:mixins --*/
 
 /*-- scss:rules --*/
@@ -17,6 +19,16 @@ main {
   h1 {
     font-weight: bold;
     text-align: center;
+  }
+
+  .iihrn-answer {
+    font-size: 200%;
+  }
+
+  .iihrn-answer,
+  .iihrn-comment {
+    padding: 10px 30px;
+    border-radius: 120px;
   }
   
   .iihrn-figure {
