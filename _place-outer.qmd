@@ -6,5 +6,3 @@ format:
       - text: "<meta name='isithotrightnow-station' data-station='{{ID}}'>"
 ---
 {{< include /_place-body.qmd >}}
-
-{{< include /_footer.qmd >}}

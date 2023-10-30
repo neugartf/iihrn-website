@@ -6,7 +6,7 @@ pagetitle: "Is it hot right now?"
 everythingLoaded = australia && aq && joinedPlaces
 ```
 
-::::{.column-page}
+::::{.column-page style="margin-bottom: 3.5em;"}
 ::::{.grid style="height: 80svh;"}
 :::{.g-col-12 .g-col-md-6}
 
@@ -154,5 +154,3 @@ Plot.plot({
 :::
 ::::
 :::::
-
-{{< include /_footer.qmd >}}

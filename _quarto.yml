@@ -9,6 +9,12 @@ website:
   search: false
   navbar:
     background: "#ffffff"
+  page-footer: |
+    <p>By <a href="https://theurbanist.com.au/about">Mat Lipson</a>, <a href="https://steefancontractor.github.io/my_website/">Steefan Contractor</a> and <a href="https://jamesgoldie.dev">James Goldie</a>.</p>
+
+    <p><a href="mailto:isithotrightnow@gmail.com">Get in touch!</a></p>
+
+    <p>Our data comes from the Bureau of Meteorology's <a href="http://www.bom.gov.au/climate/change/acorn-sat/">ACORN-SAT</a> and latest xml feeds. Our plots are <a href="https://isithotrightnow.com/licence">free to share for non-commercial purposes</a>.</p>
 format:
   html:
     theme:

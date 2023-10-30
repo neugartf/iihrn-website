@@ -22,8 +22,6 @@ html`<span class="iihrn-answer" style="background-color: ${answers[stats.isit_an
 
 ${stats.isit_comment}
 
-
-
 ```{=html}
   <a href="#detail">
     <i class="bi bi-arrow-down-circle-fill"></i>
@@ -89,7 +87,7 @@ md`![](${bucket_base + "plots/distribution/distribution-" + stationId + ".png"})
 ::::::
 
 
-:::::{.column-screen style="background: #ddd"}
+:::::{.column-screen style="background: #ddd; margin-bottom: -3.3em;"}
 ::::{.column-body .container}
 
 # ... and the rest of the year.
