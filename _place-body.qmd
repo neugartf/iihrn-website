@@ -84,7 +84,7 @@ We've compared every day this year at **Richmond RAAF** to similar times of year
 //| label: hw
 //| classes: iihrn-figure
 //| echo: false
-md`![](${bucket_base + "plots/heatwave/heatwave-" + stationId + ".png"})`
+md`![](${bucket_base + "plots/heatmap/heatmap-" + stationId + ".png"})`
 ```
 
 ::::
