@@ -1,8 +1,8 @@
 project:
   type: website
   resources:
-    - "assets/australia.geojson"
-    - "locations.json"
+    - "/assets/australia.geojson"
+    - "/assets/locations.json"
 
 website:
   title: "Is it hot right now?"
@@ -15,6 +15,7 @@ website:
     <p><a href="mailto:isithotrightnow@gmail.com">Get in touch!</a></p>
 
     <p>Our data comes from the Bureau of Meteorology's <a href="http://www.bom.gov.au/climate/change/acorn-sat/">ACORN-SAT</a> and latest xml feeds. Our plots are <a href="https://isithotrightnow.com/licence">free to share for non-commercial purposes</a>.</p>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" alt="Creative Commons Attribution Non-Commercial 4.0 badge" style="width:80px"/></a>
 format:
   html:
     theme:

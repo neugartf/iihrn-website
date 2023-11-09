@@ -1,8 +1,0 @@
----
-pagetitle: "{{NAME}} - Is it hot right now?"
-format:
-  html:
-    include-in-header:
-      - text: "<meta name='isithotrightnow-station' data-station='{{ID}}'>"
----
-{{< include /_place-body.qmd >}}

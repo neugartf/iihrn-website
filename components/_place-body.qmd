@@ -1,8 +1,14 @@
+```{ojs}
+//| label: load-data
+//| echo: false
+
+statsPlace = FA(bucket_base + "stats/stats_" + stationId + ".json").json()
+```
 
 ::::::{.column-screen style="height: 95svh;"}
 :::::{.column-body style="display: flex; flex-flow: column nowrap; justify-content: space-around; text-align: center; font-weight: bold; font-size: 200%;"}
 
-Is it hot in ${stats.isit_label} right now?
+Is it hot in ${statsPlace.isit_label} right now?
 
 ```{ojs}
 //| label: answer
@@ -17,34 +23,16 @@ answers = ({
   "Hell yeah!": {color: "#b2182bff", fill: "transparent"}
 })
 
-html`<span class="iihrn-answer" style="background-color: ${answers[stats.isit_answer].fill}; color: ${answers[stats.isit_answer].color};">${stats.isit_answer}</span>`
+html`<span class="iihrn-answer" style="background-color: ${answers[statsPlace.isit_answer].fill}; color: ${answers[statsPlace.isit_answer].color};">${statsPlace.isit_answer}</span>`
 ```
 
-${stats.isit_comment}
+${statsPlace.isit_comment}
 
 ```{=html}
   <a href="#detail">
     <i class="bi bi-arrow-down-circle-fill"></i>
     <p>Dig deeper</p>
   </a>
-```
-
-
-```{ojs}
-//| label: get-station-name
-//| echo: false
-stationId = document
-  .querySelector("meta[name=isithotrightnow-station]")
-  .getAttribute("data-station")
-```
-
-```{ojs}
-//| label: load-data
-//| echo: false
-bucket_base = "https://isithot-data.s3.ap-southeast-2.amazonaws.com/www/"
-
-FA = FileAttachment
-stats = FA(bucket_base + "stats/stats_" + stationId + ".json").json()
 ```
 
 :::::
@@ -57,7 +45,7 @@ stats = FA(bucket_base + "stats/stats_" + stationId + ".json").json()
 
 ::::{.grid}
 :::{.g-col-12 .g-col-md-4}
-Today's maximum temperature so far is **32.5 °C**, and the minimum overnight was **11.7 °C**. The average of the two is **22.1 °C**, which is hotter than **89%** of daily average temperatures at **Richmond RAAF** for this time of year over the period 1939–2021. The really hot and cold days (top and bottom 5%, respectively) are outside the dotted lines. 
+Today's maximum temperature so far is <strong> ${statsPlace.isit_maximum} °C</strong>, and the minimum overnight was <strong> ${statsPlace.isit_minimum} °C</strong>. The average of the two is <strong> ${statsPlace.isit_current} °C</strong>, which is hotter than <strong> ${statsPlace.isit_average} %</strong> of daily average temperatures at <strong> ${statsPlace.isit_label}</strong> for this time of year over the period 1939–2021. The bloody hot and cold days (top and bottom 5%, respectively) are outside the dotted lines. 
 :::
 :::{.g-col-12 .g-col-md-8}
 ```{ojs}
@@ -92,7 +80,7 @@ md`![](${bucket_base + "plots/distribution/distribution-" + stationId + ".png"})
 
 # ... and the rest of the year.
 
-We've compared every day this year at **Richmond RAAF** to similar times of year in the past. Red days were hot compared to records; blue days were cold. 
+We've compared every day this year at <strong> ${statsPlace.isit_label}</strong> to similar times of year in the past. Red days were hot compared to records; blue days were cold. 
 
 ```{ojs}
 //| label: hw

@@ -1,7 +1,9 @@
 # Our plots and statistics are available for non-commercial use.
 
-More formally, they're available under a [Creative Commons Attribution Non-Commercial 3.0 Australia](https://creativecommons.org/licenses/by-nc/3.0/au/) licence.
+More formally, they're available under a [Creative Commons Attribution Non-Commercial 4.0](https://creativecommons.org/licenses/by-nc/4.0) licence.
 
 We'd love to licence our stuff for commercial use, but we use observations from the [Bureau of Meteorology](http://www.bom.gov.au/catalogue/data-feeds.shtml) that are, in turn, not licensed to us for commercial use (yet!). But posting, tweeting or otherwise sharing our plots for non-commercial purposes makes up happy!
 
 Info and sources of the data we use are summarised on [GitHub](https://github.com/isithot/isithotrightnow/blob/master/data/README.md).
+
+[![Creative Commons Attribution Non-Commercial 4.0 badge](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png){style="height: 1.5em"}](https://creativecommons.org/licenses/by-nc/4.0/)

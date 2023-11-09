@@ -1,0 +1,146 @@
+::::{.column-page style="margin-bottom: 3.5em;"}
+::::{.grid style="height: 80svh;"}
+:::{.g-col-12 .g-col-md-6}
+
+```{ojs}
+everythingLoaded = australia && aq && joinedPlaces
+```
+
+:::{style="display:flex; flex-direction: column; justify-content: center; height: 100%;"}
+# Here's how the rest of Australia looks today.
+:::
+
+:::
+:::{.g-col-12 .g-col-md-6 style="display: flex; flex-direction: column; justify-content: center;"}
+
+```{ojs}
+//| label: load-map-data
+//| echo: false
+//| error: false
+
+statsAllRaw = FA(bucket_base + "stats/stats_all.json").json()
+
+// statsAllRaw is an object with keys by station id, but we
+// need an array with an id field. let's move the ids in
+statsAll = {
+  const statsArray = []
+  Object.keys(statsAllRaw).map(k => statsArray.push({...statsAllRaw[k], id: k}))
+  return(aq.from(statsArray))
+}
+
+// here's the station metadata
+places = await aq.loadJSON("/assets/locations.json")
+
+joinedPlaces = places.
+  join(statsAll)
+  .derive({
+    lat: d => op.parse_float(d.lat),
+    lon: d => op.parse_float(d.lon),
+    isit_average: d => op.parse_float(d.isit_average),
+    // current? (that's the actual avg temp)
+    isit_maximum: d => op.parse_float(d.isit_maximum),
+    isit_minimum: d => op.parse_float(d.isit_minimum)
+  })
+  .objects()
+```
+
+```{ojs}
+//| label: draw-map
+//| classes: iihrn-map
+//| echo: false
+//| error: false
+
+australia = FileAttachment("/assets/australia.geojson").json()
+
+Plot = import("https://esm.run/@observablehq/plot")
+
+answer_domain = [
+  "Hell no!",
+  "No!",
+  "Nope",
+  "Not really",
+  "Yup",
+  "Yeah!",
+  "Hell yeah!"]
+
+Plot.plot({
+  projection: {
+    type: "equirectangular",
+    rotate: [-133, 28],
+    domain: d3.geoCircle().center([133, -28]).radius(20)()
+  },
+  marks: [
+    // Plot.graticule(),
+    Plot.geo(australia, {
+      fill: "#00000005",
+      stroke: "#dddddd"
+    }),
+    Plot.dot(joinedPlaces, {
+      x: "lon",
+      y: "lat",
+      fill: "isit_answer",
+      stroke: d =>
+        d.isit_answer == "Hell no!" || d.isit_answer == "Hell yeah!" ?
+        "black" :
+        "#00000099",
+      strokeWidth: 0.75,
+      r: "isit_answer",
+      // symbol: "isit_answer",
+      href: d => "/places/" + d.url,
+    }),
+    Plot.tip(joinedPlaces, Plot.pointer({
+      x: "lon",
+      y: "lat",
+      channels: {
+        label: {
+          label: "",
+          value: d => d.label + ": " + d.isit_comment
+        },
+        isit_maximum: {
+          label: "Max:",
+          value: d => d.isit_maximum + "°C"
+        },
+        isit_minimum: {
+          label: "Min:",
+          value: d => d.isit_minimum + "°C"
+        }
+      },
+      fontSize: 20,
+      fontFamily: "Roboto Condensed",
+      format: {
+        x: null,
+        y: null
+      },
+      lineWidth: 20
+    }))
+  ],
+  color: {
+    type: "ordinal",
+    domain: answer_domain,
+    range: ["#2166acff",
+            "#67a9cfbb",
+            "#d1e5f0bb",
+            "#f7f7f7bb",
+            "#fddbc7bb",
+            "#ef8a62bb",
+            "#b2182bff"]
+  },
+  r: {
+    type: "ordinal",
+    domain: answer_domain,
+    range: [8, 5, 5, 5, 5, 5, 8]
+  },
+  // symbol: {
+  //   type: "ordinal",
+  //   domain: answer_domain,
+  //   range: ["triangle", "circle", "circle", "circle", "circle", "circle",
+  //     "triangle"]
+  // },
+  height: 600
+})
+
+```
+
+:::
+::::
+:::::

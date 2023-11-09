@@ -6,7 +6,7 @@ async function writePlaceDoc(place) {
   await Deno.mkdir("./places/" + place.url, { recursive: true });
 
   // read template file and inject place id
-  let placeDocText = await Deno.readTextFile("./_place-outer.qmd")
+  let placeDocText = await Deno.readTextFile("./places/_place-outer.qmd")
 
   let injectedDocText = placeDocText
     .replace("{{ID}}", place.id)
@@ -20,7 +20,7 @@ async function writePlaceDoc(place) {
 }
 
 // 1. get locations.json
-let locationsText = await Deno.readTextFile("./locations.json");
+let locationsText = await Deno.readTextFile("./assets/locations.json");
 let locations = JSON.parse(locationsText);
 console.log("Found " + locations.length + " places to add");
 
