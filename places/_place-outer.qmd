@@ -1,0 +1,23 @@
+---
+pagetitle: "{{NAME}} - Is it hot right now?"
+format:
+  html:
+    include-in-header:
+      - text: "<meta name='isithotrightnow-station' data-station='{{ID}}'>"
+---
+
+{{< include /components/_imports.qmd >}}
+
+```{ojs}
+//| label: get-station-name
+//| echo: false
+
+// get the station id from the page <head>, injected by populate-places.qmd
+stationId = document
+  .querySelector("meta[name=isithotrightnow-station]")
+  .getAttribute("data-station")
+```
+
+{{< include /components/_place-body.qmd >}}
+
+{{< include /components/_map.qmd >}}
