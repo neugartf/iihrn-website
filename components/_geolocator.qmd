@@ -2,32 +2,41 @@
 //| label: watch-position
 
 
-fallbackStation = "066214"
+// fallbackStation = "066214"
 
 // check if permissions are available and have been given
-geolocationAvailable = "geolocation" in navigator
-geolocateStatus =
-  (await navigator.permissions.query({name: "geolocation"}))?.state 
-// "prompt" - need to ask (fallback to sydney until granted)
-// "denied" - fall back to sydney
-// "granted" - granted, look up
-// undefined or "unknown" - something went wrong
+// geolocationAvailable = "geolocation" in navigator
 
-currentLocation = Generators.observe(next => {
-  
-  // yield initial value
-  next(undefined);
+mutable myLocation = null
+mutable geolocateStatus = "default"
 
-  if (geolocationAvailable && geolocateStatus == "granted") {
-    
-    // attach event listener
-    const watchID = navigator.geolocation.watchPosition(next, next)
-    
-    // return func to cleanup event listener on destruction  
-    return () => navigator.geolocation.clearWatch(watchID)
-  }
+getLocation = {
+  yield null
 
-  // return func to cleanup event listener on destruction
-  return
-})
+  yield navigator.geolocation.getCurrentPosition(
+    pos => {
+      mutable myLocation = {
+        lat: pos.coords.latitude,
+        lon: pos.coords.longitude
+      }
+      mutable geolocateStatus = "granted"
+    },
+    e => {
+      console.log("Geolocation error", e),
+      mutable geolocateStatus = "error"
+    },
+    {
+      enableHighAccuracy: false
+    })
+}
+
+geolocateStatus == "default" ?
+  md`Allow location to see local station` :
+    geolocateStatus == "error" ?
+      md`Problem getting location` :
+      md``
+
+myLocation != null ?
+  md`Location is lat: ${myLocation.lat}, lon: ${myLocation.lon}` :
+  md`Location permission not granted`
 ```
