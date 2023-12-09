@@ -2,15 +2,44 @@
 pagetitle: "Is it hot right now?"
 ---
 
-
 {{< include /components/_imports.qmd >}}
+
+{{< include /components/_geolocator.qmd >}}
 
 ```{ojs}
 //| label: get-station-name
 //| echo: false
 
-// default: sydney
-stationId = "066214"
+// on the home page, get station id from:
+//   * _geolocator.qmd's myLocation, plus
+//   * _map.qmd's statsAll
+
+stationId = {
+  
+  // fallback to sydney?
+  if (myLocation == null) {
+    return "023000"
+  }
+
+  // otherwise, find closest station on statsAll
+  const closestStation = places
+    .params({
+      currentLat: myLocation.lat,
+      currentLon: myLocation.lon,
+    })
+    .derive({
+      dist: (d, $) => Math.sqrt(
+        ($.currentLat - d.lat) ** 2 + ($.currentLon - d.lon) ** 2)
+    })
+    .orderby("dist")
+    .slice(0, 1)
+    .array("id")
+
+  return closestStation[0]
+}
+
+md`Station is ${stationId}`
+
 ```
 
 {{< include /components/_place-body.qmd >}}
