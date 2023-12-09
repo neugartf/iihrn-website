@@ -5,6 +5,8 @@ pagetitle: "Is it hot right now?"
 
 {{< include /components/_imports.qmd >}}
 
+{{< include /components/_geolocator.qmd >}}
+
 ```{ojs}
 //| label: get-station-name
 //| echo: false

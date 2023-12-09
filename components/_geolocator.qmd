@@ -1,0 +1,33 @@
+```{ojs}
+//| label: watch-position
+
+
+fallbackStation = "066214"
+
+// check if permissions are available and have been given
+geolocationAvailable = "geolocation" in navigator
+geolocateStatus =
+  (await navigator.permissions.query({name: "geolocation"}))?.state 
+// "prompt" - need to ask (fallback to sydney until granted)
+// "denied" - fall back to sydney
+// "granted" - granted, look up
+// undefined or "unknown" - something went wrong
+
+currentLocation = Generators.observe(next => {
+  
+  // yield initial value
+  next(undefined);
+
+  if (geolocationAvailable && geolocateStatus == "granted") {
+    
+    // attach event listener
+    const watchID = navigator.geolocation.watchPosition(next, next)
+    
+    // return func to cleanup event listener on destruction  
+    return () => navigator.geolocation.clearWatch(watchID)
+  }
+
+  // return func to cleanup event listener on destruction
+  return
+})
+```
