@@ -1,0 +1,7 @@
+---
+pagetitle: "Places"
+---
+
+{{< include /components/_imports.qmd >}}
+
+{{< include /components/_map.qmd >}}
