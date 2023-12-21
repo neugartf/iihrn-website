@@ -1,5 +1,6 @@
 ---
 pagetitle: "Places"
+search: false 
 ---
 
 {{< include /components/_imports.qmd >}}

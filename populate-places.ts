@@ -9,15 +9,8 @@ async function writePlaceDoc(place) {
     console.error(place)
   }
 
-  // create url slug from label (we may need to send this to a common .ts file)
-  const url_slug = place.isit_label
-    .toLowerCase()
-    .replaceAll(/\s-\s/g, "-")
-    .replaceAll(/\s/g, "-")
-    .replaceAll(/[()]/g, "")
-
   // create folder inside /places/
-  await Deno.mkdir("./places/" + url_slug, { recursive: true });
+  await Deno.mkdir("./places/" + place.slug, { recursive: true });
 
   // read template file and inject place id
   let placeDocText = await Deno.readTextFile("./places/_place-outer.qmd")
@@ -28,7 +21,7 @@ async function writePlaceDoc(place) {
 
   // write to places/safe-place-name/index.qmd
   await Deno.writeTextFile(
-    "./places/" + url_slug + "/index.qmd",
+    "./places/" + place.slug + "/index.qmd",
     injectedDocText);
 }
 
@@ -39,14 +32,22 @@ const locationsReq = await fetch(
   "www/stats/stats_all.json");
 const locationsObj = await locationsReq.json();
 
-// shift station id keys to object properties
+// shift station id keys to object properties and create slugs
 console.log("Processing location list...")
 const locations = []
 Object
   .keys(locationsObj)
-  .map(k => locations.push({...locationsObj[k], id: k}))
+  .map((k, v) => locations.push({
+    ...locationsObj[k],
+    id: k,
+    slug: locationsObj[k].isit_label
+      .toLowerCase()
+      .replaceAll(/\s-\s/g, "-")
+      .replaceAll(/\s/g, "-")
+      .replaceAll(/[()]/g, "")
+  }));
 
-console.log("Found " + locations.length + " places to add:");
+console.log("Found " + locations.length + " places to add...");
 
 // 2. write out a .qmd file for each place in locations.json
 locations.map(writePlaceDoc);

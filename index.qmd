@@ -1,5 +1,6 @@
 ---
 pagetitle: "Is it hot right now?"
+search: false
 ---
 
 {{< include /components/_imports.qmd >}}

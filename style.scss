@@ -8,8 +8,9 @@
 
 $font-family-sans-serif: "Roboto Condensed";
 
-$link-color: #333333;
-$footer-bg: #333333;
+$link-color: #343a40;
+$footer-bg: #343a40;
+$primary: #343a40;
 
 /* -- scss:mixins --*/
 
@@ -49,6 +50,38 @@ main {
   .sourceCode, .callout-important {
     display: none;
   }
+}
+
+.aa-DetachedContainer .aa-Panel {
+  transform: none;
+}
+
+.aa-Panel {
+  transform: translate(0, 10px);
+  border-radius: 5px;
+
+  .aa-SourceHeader {
+    display: none;
+  }
+
+  .aa-List {
+    margin-bottom: 0;
+    margin-top: -1px;
+
+    // li.aa-Item[aria-selected="true"] .search-item,
+    // li.aa-Item[aria-selected="true"] .search-result-title-container
+    // {
+    //   background-color: #333333;
+    // }
+  }
+
+  .search-result-title {
+    padding-right: 8px;
+  }
+}
+
+.aa-Panel:has(.quarto-search-no-results.no-query) {
+  visibility: hidden;
 }
 
 footer {
