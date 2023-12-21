@@ -29,6 +29,11 @@ getLocation = {
       enableHighAccuracy: false
     })
 }
+```
+
+```{ojs}
+//| label: geolocate-debug
+//| output: false
 
 geolocateStatus == "default" ?
   md`Allow location to see local station` :

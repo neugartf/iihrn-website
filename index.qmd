@@ -22,14 +22,14 @@ stationId = {
   }
 
   // otherwise, find closest station on statsAll
-  const closestStation = places
+  const closestStation = aq.from(statsAll)
     .params({
       currentLat: myLocation.lat,
       currentLon: myLocation.lon,
     })
     .derive({
       dist: (d, $) => Math.sqrt(
-        ($.currentLat - d.lat) ** 2 + ($.currentLon - d.lon) ** 2)
+        ($.currentLat - d.isit_lat) ** 2 + ($.currentLon - d.isit_lon) ** 2)
     })
     .orderby("dist")
     .slice(0, 1)
@@ -37,8 +37,6 @@ stationId = {
 
   return closestStation[0]
 }
-
-md`Station is ${stationId}`
 
 ```
 

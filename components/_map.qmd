@@ -3,7 +3,7 @@
 :::{.g-col-12 .g-col-md-6}
 
 ```{ojs}
-everythingLoaded = australia && aq && joinedPlaces
+everythingLoaded = australia && aq && statsAll
 ```
 
 :::{style="display:flex; flex-direction: column; justify-content: center; height: 100%;"}
@@ -25,23 +25,18 @@ statsAllRaw = FA(bucket_base + "stats/stats_all.json").json()
 statsAll = {
   const statsArray = []
   Object.keys(statsAllRaw).map(k => statsArray.push({...statsAllRaw[k], id: k}))
-  return(aq.from(statsArray))
+  const tidiedStats = aq.from(statsArray)
+    .derive({
+      lat: d => op.parse_float(d.isit_lat),
+      lon: d => op.parse_float(d.isit_lon),
+      isit_average: d => op.parse_float(d.isit_average),
+      // current? (that's the actual avg temp)
+      isit_maximum: d => op.parse_float(d.isit_maximum),
+      isit_minimum: d => op.parse_float(d.isit_minimum)
+    })
+    .objects()
+  return(tidiedStats)
 }
-
-// here's the station metadata
-places = await aq.loadJSON("/assets/locations.json")
-
-joinedPlaces = places.
-  join(statsAll)
-  .derive({
-    lat: d => op.parse_float(d.lat),
-    lon: d => op.parse_float(d.lon),
-    isit_average: d => op.parse_float(d.isit_average),
-    // current? (that's the actual avg temp)
-    isit_maximum: d => op.parse_float(d.isit_maximum),
-    isit_minimum: d => op.parse_float(d.isit_minimum)
-  })
-  .objects()
 ```
 
 ```{ojs}
@@ -75,7 +70,7 @@ Plot.plot({
       fill: "#00000005",
       stroke: "#dddddd"
     }),
-    Plot.dot(joinedPlaces, {
+    Plot.dot(statsAll, {
       x: "lon",
       y: "lat",
       fill: "isit_answer",
@@ -88,7 +83,7 @@ Plot.plot({
       // symbol: "isit_answer",
       href: d => "/places/" + d.url,
     }),
-    Plot.tip(joinedPlaces, Plot.pointer({
+    Plot.tip(statsAll, Plot.pointer({
       x: "lon",
       y: "lat",
       channels: {
