@@ -52,6 +52,27 @@ main {
   }
 }
 
+/* station search */
+
+#quarto-search {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  align-items: center;
+}
+
+@include media-breakpoint-down(lg) {
+  #quarto-search {
+    align-items: baseline;
+    gap: 5px;
+  }
+}
+
+#quarto-search::before {
+  content: 'Search places';
+  font-size: 90%;
+}
+
 .aa-DetachedContainer .aa-Panel {
   transform: none;
 }
@@ -67,12 +88,6 @@ main {
   .aa-List {
     margin-bottom: 0;
     margin-top: -1px;
-
-    // li.aa-Item[aria-selected="true"] .search-item,
-    // li.aa-Item[aria-selected="true"] .search-result-title-container
-    // {
-    //   background-color: #333333;
-    // }
   }
 
   .search-result-title {
