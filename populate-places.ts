@@ -26,12 +26,10 @@ async function writePlaceDoc(place) {
     .replace("{{ID}}", place.id)
     .replace("{{NAME}}", place.isit_label);
 
-
   // write to places/safe-place-name/index.qmd
   await Deno.writeTextFile(
     "./places/" + url_slug + "/index.qmd",
     injectedDocText);
-
 }
 
 // 1. download locations from s3 bucket
@@ -49,7 +47,6 @@ Object
   .map(k => locations.push({...locationsObj[k], id: k}))
 
 console.log("Found " + locations.length + " places to add:");
-console.log(locations)
 
 // 2. write out a .qmd file for each place in locations.json
 locations.map(writePlaceDoc);
