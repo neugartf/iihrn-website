@@ -32,7 +32,15 @@ statsAll = {
       isit_average: d => op.parse_float(d.isit_average),
       // current? (that's the actual avg temp)
       isit_maximum: d => op.parse_float(d.isit_maximum),
-      isit_minimum: d => op.parse_float(d.isit_minimum)
+      isit_minimum: d => op.parse_float(d.isit_minimum),
+      slug: d =>
+        op.replace(
+          op.replace(
+            op.replace(
+              op.lower(d.isit_label),
+              /\s-\s/g, "-"),
+            /\s/g, "-"),
+          /[()]/g, "")
     })
     .objects()
   return(tidiedStats)
@@ -80,8 +88,7 @@ Plot.plot({
         "#00000099",
       strokeWidth: 0.75,
       r: "isit_answer",
-      // symbol: "isit_answer",
-      href: d => "/places/" + d.url,
+      href: d => "/places/" + d.slug,
     }),
     Plot.tip(statsAll, Plot.pointer({
       x: "lon",
@@ -89,7 +96,7 @@ Plot.plot({
       channels: {
         label: {
           label: "",
-          value: d => d.label + ": " + d.isit_comment
+          value: d => d.isit_label + ": " + d.isit_comment
         },
         isit_maximum: {
           label: "Max:",
@@ -125,12 +132,6 @@ Plot.plot({
     domain: answer_domain,
     range: [8, 5, 5, 5, 5, 5, 8]
   },
-  // symbol: {
-  //   type: "ordinal",
-  //   domain: answer_domain,
-  //   range: ["triangle", "circle", "circle", "circle", "circle", "circle",
-  //     "triangle"]
-  // },
   height: 600
 })
 
