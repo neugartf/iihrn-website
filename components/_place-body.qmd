@@ -38,7 +38,7 @@ ${statsPlace.isit_comment}
 :::::
 ::::::
 
-::::::{.column-screen style="background: #eee"}
+::::::{.iihrn-section style="background: #eee"}
 :::::{.column-body}
 
 # Here's how today compares... {#detail}
@@ -75,7 +75,7 @@ md`![](${bucket_base + "plots/distribution/distribution-" + stationId + ".png"})
 ::::::
 
 
-:::::{.column-screen style="background: #ddd; margin-bottom: -3.3em;"}
+:::::{.iihrn-section style="background: #ddd;"}
 ::::{.column-body .container}
 
 # ... and the rest of the year.

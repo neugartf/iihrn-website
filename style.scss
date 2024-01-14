@@ -99,6 +99,30 @@ main {
   visibility: hidden;
 }
 
+/* body sections */
+.iihrn-section {
+  @extend .column-screen;
+  padding-bottom: 3em;
+}
+
+@include media-breakpoint-up(md) { 
+  #map-section {
+    .grid {
+      margin-top: 1rem;
+    }
+  }
+}
+
+/* map */
+
+// #draw-map {
+//   svg {
+//     g[aria-label="tip"] {
+
+//     }
+//   }
+// }
+
 footer {
 
   .nav-footer {

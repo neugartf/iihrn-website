@@ -1,6 +1,6 @@
-::::{.column-page style="margin-bottom: 3.5em;"}
-::::{.grid style="height: 80svh;"}
-:::{.g-col-12 .g-col-md-6}
+::::{.iihrn-section #map-section}
+::::{.column-page-inset .grid}
+:::{.g-col-12 .g-col-md-4}
 
 ```{ojs}
 everythingLoaded = australia && aq && statsAll
@@ -11,7 +11,7 @@ everythingLoaded = australia && aq && statsAll
 :::
 
 :::
-:::{.g-col-12 .g-col-md-6 style="display: flex; flex-direction: column; justify-content: center;"}
+:::{.g-col-12 .g-col-md-8 style="display: flex; flex-direction: column; justify-content: center;"}
 
 ```{ojs}
 //| label: load-map-data
@@ -78,6 +78,13 @@ Plot.plot({
       fill: "#00000005",
       stroke: "#dddddd"
     }),
+    Plot.voronoi(statsAll, {
+      x: "lon",
+      y: "lat",
+      fill: "transparent",
+      stroke: "transparent",
+      href: d => "/places/" + d.slug,
+    }),
     Plot.dot(statsAll, {
       x: "lon",
       y: "lat",
@@ -88,33 +95,8 @@ Plot.plot({
         "#00000099",
       strokeWidth: 0.75,
       r: "isit_answer",
-      href: d => "/places/" + d.slug,
     }),
-    Plot.tip(statsAll, Plot.pointer({
-      x: "lon",
-      y: "lat",
-      channels: {
-        label: {
-          label: "",
-          value: d => d.isit_label + ": " + d.isit_comment
-        },
-        isit_maximum: {
-          label: "Max:",
-          value: d => d.isit_maximum + "°C"
-        },
-        isit_minimum: {
-          label: "Min:",
-          value: d => d.isit_minimum + "°C"
-        }
-      },
-      fontSize: 20,
-      fontFamily: "Roboto Condensed",
-      format: {
-        x: null,
-        y: null
-      },
-      lineWidth: 20
-    }))
+    Plot.tip(statsAll, tipTemplate)
   ],
   color: {
     type: "ordinal",
@@ -132,9 +114,40 @@ Plot.plot({
     domain: answer_domain,
     range: [8, 5, 5, 5, 5, 5, 8]
   },
-  height: 600
+  height: 550
 })
 
+```
+
+```{ojs}
+//| label: tip-template
+// breaking out the pointer layer for readability
+// (and in case we decide to customise it later)
+tipTemplate = Plot.pointer({
+  x: "lon",
+  y: "lat",
+  channels: {
+    label: {
+      label: "",
+      value: d => d.isit_label + ": " + d.isit_comment
+    },
+    isit_maximum: {
+      label: "Max:",
+      value: d => d.isit_maximum + "°C"
+    },
+    isit_minimum: {
+      label: "Min:",
+      value: d => d.isit_minimum + "°C"
+    }
+  },
+  fontSize: 20,
+  fontFamily: "Roboto Condensed",
+  format: {
+    x: null,
+    y: null
+  },
+  lineWidth: 20
+})
 ```
 
 :::
