@@ -99,11 +99,22 @@ main {
   visibility: hidden;
 }
 
+/* dig deeper button */
+
+#btn-digdeeper {
+  i {
+    background: linear-gradient(to bottom, #333, #666);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 250%;
+  }
+}
+
 footer {
 
   .nav-footer {
     text-align: center;
-    height: 230px;
     
     padding-block: 2rem;
     background-color: #333333;

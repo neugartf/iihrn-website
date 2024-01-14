@@ -14,25 +14,26 @@ Is it hot in ${statsPlace.isit_label} right now?
 //| label: answer
 
 answers = ({
-  "Hell no!":   {color: "#2166acff", fill: "transparent"},
-  "No!":        {color: "#67a9cfbb", fill: "transparent"},
-  "Nope":       {color: "#333333",   fill: "#d1e5f0bb"},
-  "Not really": {color: "#333333",   fill: "#f7f7f7bb"},
-  "Yup":        {color: "#333333",   fill: "#fddbc7"},
-  "Yeah!":      {color: "#ef8a62bb", fill: "transparent"},
-  "Hell yeah!": {color: "#b2182bff", fill: "transparent"}
+  "Hell no!":   {color: "white",   fill1: "#5287d1", fill2: "#2166ac" },
+  "No!":        {color: "white",   fill1: "#a2cdeb", fill2: "#67a9cf" },
+  "Nope":       {color: "#333333", fill1: "#f5f8fa", fill2: "#d1e5f0" },
+  "Not really": {color: "#333333", fill1: "#f7f7f7", fill2: "#ebebeb" },
+  "Yup":        {color: "#333333", fill1: "#fddcca", fill2: "#f7cfb7" },
+  "Yeah!":      {color: "white",   fill1: "#de7b49", fill2: "#fc946a" },
+  "Hell yeah!": {color: "white",   fill1: "#d1231d", fill2: "#b2182b" }
 })
 
-html`<span class="iihrn-answer" style="background-color: ${answers[statsPlace.isit_answer].fill}; color: ${answers[statsPlace.isit_answer].color};">${statsPlace.isit_answer}</span>`
+
+html`<span class="iihrn-answer" style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2}); color: ${answers[statsPlace.isit_answer].color};">${statsPlace.isit_answer}</span>`
 ```
 
 ${statsPlace.isit_comment}
 
+
 ```{=html}
-  <a href="#detail">
-    <i class="bi bi-arrow-down-circle-fill"></i>
-    <p>Dig deeper</p>
-  </a>
+<a id="btn-digdeeper" href="#detail">
+  <i class="bi bi-arrow-down-circle-fill" style="background: linear-gradient(to bottom, #333, #555;"></i>
+</a>
 ```
 
 :::::

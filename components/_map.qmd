@@ -2,10 +2,6 @@
 ::::{.grid style="height: 80svh;"}
 :::{.g-col-12 .g-col-md-6}
 
-```{ojs}
-everythingLoaded = australia && aq && statsAll
-```
-
 :::{style="display:flex; flex-direction: column; justify-content: center; height: 100%;"}
 # Here's how the rest of Australia looks today.
 :::
