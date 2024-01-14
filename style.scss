@@ -103,14 +103,27 @@ footer {
 
   .nav-footer {
     text-align: center;
-    height: 230px;
-    
-    padding-block: 2rem;
-    background-color: #333333;
+
+    .nav-footer-center {
+      margin-top: 1em;
+    }
     
     a {
       font-weight: bold;
       text-decoration: underline;
+    }
+  }
+
+  #flags {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    padding-inline-start: 0;
+    gap: 10px;
+
+    img {
+      width: 25px;
+      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
     }
   }
 

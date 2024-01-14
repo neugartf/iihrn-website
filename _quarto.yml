@@ -12,13 +12,16 @@ website:
   navbar:
     background: "#ffffff"
     collapse: false
-  page-footer: |
-    <p>By <a href="https://theurbanist.com.au/about">Mat Lipson</a>, <a href="https://steefancontractor.github.io/my_website/">Steefan Contractor</a> and <a href="https://jamesgoldie.dev">James Goldie</a>.</p>
-
-    <p><a href="mailto:isithotrightnow@gmail.com">Get in touch!</a></p>
-
-    <p>Our data comes from the Bureau of Meteorology's <a href="http://www.bom.gov.au/climate/change/acorn-sat/">ACORN-SAT</a> and latest xml feeds. Our plots are <a href="https://isithotrightnow.com/licence">free to share for non-commercial purposes</a>.</p>
-    <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" alt="Creative Commons Attribution Non-Commercial 4.0 badge" style="width:80px"/></a>
+  page-footer:
+    left: |
+        <p>By <a href="https://theurbanist.com.au/about">Mat Lipson</a>, <a href="https://steefancontractor.github.io/my_website/">Steefan Contractor</a> and <a href="https://jamesgoldie.dev">James Goldie</a>. <a href="mailto:isithotrightnow@gmail.com">Get in touch!</a></p>
+        <p>See websites from our international colleagues:</p>
+        <ul id="flags">
+          <li><a href="https://hoyextremo.com/"><img src="/assets/flags/es.svg"></a></li>
+        </ul>
+    right: |
+        <p>Our data comes from the Bureau of Meteorology's <a href="http://www.bom.gov.au/climate/change/acorn-sat/">ACORN-SAT</a> and latest xml feeds. Our plots are <a href="https://isithotrightnow.com/licence">free to share for non-commercial purposes</a>.</p>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" alt="Creative Commons Attribution Non-Commercial 4.0 badge" style="width:80px"/></a>
 
 format:
   html:
