@@ -146,7 +146,8 @@ tipTemplate = Plot.pointer({
     x: null,
     y: null
   },
-  lineWidth: 20
+  lineWidth: 20,
+  lineHeight: 1.25
 })
 ```
 
