@@ -70,12 +70,12 @@ Plot.plot({
   projection: {
     type: "equirectangular",
     rotate: [-133, 28],
-    domain: d3.geoCircle().center([133, -28]).radius(20)()
+    domain: d3.geoCircle().center([133, -28]).radius(18)()
   },
   marks: [
     // Plot.graticule(),
     Plot.geo(australia, {
-      fill: "#00000005",
+      fill: "#00000009",
       stroke: "#dddddd"
     }),
     Plot.voronoi(statsAll, {
@@ -114,7 +114,7 @@ Plot.plot({
     domain: answer_domain,
     range: [8, 5, 5, 5, 5, 5, 8]
   },
-  height: 550
+  height: 600
 })
 
 ```

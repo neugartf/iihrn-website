@@ -115,13 +115,11 @@ main {
 
 /* map */
 
-// #draw-map {
-//   svg {
-//     g[aria-label="tip"] {
-
-//     }
-//   }
-// }
+#draw-map {
+  svg {
+    margin-bottom: 0;
+  }
+}
 
 footer {
 
