@@ -1,4 +1,4 @@
-# iihrn-website
+# Is It Hot Right Now? website
 
 To render the website to `/_site`, ensure `locations.json` is present and then run:
 
