@@ -1,7 +1,7 @@
 ---
-pagetitle: "{{NAME}} - Is it hot right now?"
 format:
   html:
+    pagetitle: "Is it hot in {{NAME}} right now?"
     include-in-header:
       - text: "<meta name='isithotrightnow-station' data-station='{{ID}}'>"
 ---

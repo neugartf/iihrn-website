@@ -1,5 +1,5 @@
 ---
-pagetitle: "Licence"
+pagetitle: "Licence - Is It Hot Right Now"
 search: false
 ---
 

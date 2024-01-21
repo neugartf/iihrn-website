@@ -4,11 +4,20 @@ project:
   resources:
     - "/assets/australia.geojson"
     - "/assets/locations.json"
+    - "/assets/iihrn-social-card.png"
 
 website:
   title: "Is it hot right now?"
   search:
     type: textbox
+  open-graph:
+    description: Is it hot right now, or does it just feel like it?
+    image: "/assets/iihrn-social-card.png"
+  twitter-card:
+    site: "isithotrightnow.com"
+    description: Is it hot right now, or does it just feel like it?
+    card-style: "summary"
+    image: "/assets/iihrn-social-card.png"
   navbar:
     background: "#ffffff"
     collapse: false
