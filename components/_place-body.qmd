@@ -39,14 +39,33 @@ ${statsPlace.isit_comment}
 ::::::
 
 ::::::{.iihrn-section style="background: #eee"}
+
 :::::{.column-body}
 
 # Here's how today compares... {#detail}
 
 ::::{.grid}
+
 :::{.g-col-12 .g-col-md-4}
-Today's maximum temperature so far is <strong> ${statsPlace.isit_maximum} °C</strong>, and the minimum overnight was <strong> ${statsPlace.isit_minimum} °C</strong>. The average of the two is <strong> ${statsPlace.isit_current} °C</strong>, which is hotter than <strong> ${statsPlace.isit_average} %</strong> of daily average temperatures at <strong> ${statsPlace.isit_label}</strong> for this time of year over the period 1939–2021. The bloody hot and cold days (top and bottom 5%, respectively) are outside the dotted lines. 
+
+```{ojs}
+//| label: datetime-formatting
+datefns = import("https://cdn.skypack.dev/date-fns@3.3.1?min")
+tmaxWhen = new Date(Date.parse(statsPlace.isit_maximum_dt || null))
+tminWhen = new Date(Date.parse(statsPlace.isit_minimum_dt || null))
+
+tmaxWhenFriendly = isFinite(tmaxWhen) ?
+  "(" + datefns.formatRelative(tmaxWhen, new Date()) + ")" : ""
+tminWhenFriendly = isFinite(tminWhen) ?
+  "(" + datefns.formatRelative(tminWhen, new Date()) + ")" : ""
+
+percentRating = statsPlace.isit_average.toFixed(1) + "%"
+```
+
+Today's maximum temperature so far is <strong> ${statsPlace.isit_maximum} °C</strong> ${tmaxWhenFriendly}, and the minimum overnight was <strong> ${statsPlace.isit_minimum} °C</strong> ${tminWhenFriendly}. The average of the two is <strong> ${statsPlace.isit_current} °C</strong>, which is hotter than <strong> ${percentRating} </strong> of daily average temperatures at <strong> ${statsPlace.isit_label}</strong> for this time of year over the period 1939–2021. The bloody hot and cold days (top and bottom 5%, respectively) are outside the dotted lines. 
+
 :::
+
 :::{.g-col-12 .g-col-md-8}
 ```{ojs}
 //| label: ts
@@ -54,13 +73,19 @@ Today's maximum temperature so far is <strong> ${statsPlace.isit_maximum} °C</s
 //| echo: false
 md`![](${bucket_base + "plots/timeseries/timeseries-" + stationId + ".png"})`
 ```
+
 :::
+
 ::::
 
 ::::{.grid style="margin-top: 2rem;"}
+
 :::{.g-col-12 .g-col-md-4}
+
 This is the distribution of temperatures typical for this time of year, which we've defined as a seven day window either side of today. Just like a bell curve, the plot is higher at more common temperatures and lower at rare temperatures.
+
 :::
+
 :::{.g-col-12 .g-col-md-8}
 ```{ojs}
 //| label: dist
@@ -69,13 +94,16 @@ This is the distribution of temperatures typical for this time of year, which we
 md`![](${bucket_base + "plots/distribution/distribution-" + stationId + ".png"})`
 ```
 :::
+
 ::::
 
 :::::
+
 ::::::
 
 
 :::::{.iihrn-section style="background: #ddd;"}
+
 ::::{.column-body .container}
 
 # ... and the rest of the year.
@@ -90,4 +118,5 @@ md`![](${bucket_base + "plots/heatmap/heatmap-" + stationId + ".png"})`
 ```
 
 ::::
+
 :::::
