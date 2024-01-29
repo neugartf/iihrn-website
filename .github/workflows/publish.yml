@@ -15,7 +15,7 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.4.547
+          version: 1.5.5
 
       - name: Populate places
         run: quarto run populate-places.ts
