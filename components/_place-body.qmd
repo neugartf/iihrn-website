@@ -6,7 +6,7 @@ statsPlace = FA(bucket_base + "stats/stats_" + stationId + ".json").json()
 ```
 
 ::::::{.column-screen style="height: 95svh;"}
-:::::{.column-body style="display: flex; flex-flow: column nowrap; justify-content: space-around; text-align: center; font-weight: bold; font-size: 200%;"}
+:::::{.column-body style="display: flex; flex-flow: column nowrap; justify-content: space-around; text-align: center; font-weight: bold; font-size: 250%;"}
 
 Is it hot in ${statsPlace.isit_label} right now?
 
