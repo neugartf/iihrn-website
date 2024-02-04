@@ -97,7 +97,7 @@ md`${tminWhenFriendly}`
 
 ```{ojs}
 //| label: tavg
-html`<span style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2}); color: ${answers[statsPlace.isit_answer].color};">${statsPlace.isit_current} °C</span><br>`
+html`<span style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2}); color: ${answers[statsPlace.isit_answer].color};">${statsPlace.isit_current.toFixed(1)} °C</span><br>`
 md`Average so far<br>hotter than **${percentRating}** of days.`
 ```
 
