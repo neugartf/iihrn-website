@@ -10,6 +10,7 @@ website:
   title: "Is it hot right now?"
   search:
     type: textbox
+  google-analytics: "G-3EDWFZHK7Y"
   open-graph:
     description: Is it hot right now, or does it just feel like it?
     image: "/assets/iihrn-social-card.png"
