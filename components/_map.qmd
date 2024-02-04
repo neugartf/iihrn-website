@@ -31,6 +31,8 @@ statsAll = {
       // current? (that's the actual avg temp)
       isit_maximum: d => op.parse_float(d.isit_maximum),
       isit_minimum: d => op.parse_float(d.isit_minimum),
+      max_when: d => op.parse_date(d.isit_maximum_dt),
+      min_when: d => op.parse_date(d.isit_maximum_dt),
       slug: d =>
         op.replace(
           op.replace(
@@ -40,9 +42,22 @@ statsAll = {
             /\s/g, "-"),
           /[()]/g, "")
     })
+    // mark as stale if latest obs are > 24 hours old
+    .derive({
+      max_stale:
+        d => ((d.max_when - op.now()) / (1000 * 60)) / (24 * 60) > 1,
+      min_stale:
+        d => ((d.min_when - op.now()) / (1000 * 60)) / (24 * 60) > 1
+    })
     .objects()
   return(tidiedStats)
 }
+```
+
+```{ojs}
+//| label: filter-points
+currentStats = statsAll.filter(d => (!d.max_stale) && (!d.min_stale))
+staleStats = statsAll.filter(d => d.max_stale || d.min_stale)
 ```
 
 ```{ojs}
@@ -76,7 +91,15 @@ Plot.plot({
       fill: "#00000009",
       stroke: "#dddddd"
     }),
-    Plot.dot(statsAll, {
+    // replace stale locations with crosses
+    Plot.dot(staleStats, {
+      x: "lon",
+      y: "lat",
+      stroke: "lightgrey",
+      r: 6,
+      symbol: "times"
+    }),
+    Plot.dot(currentStats, {
       x: "lon",
       y: "lat",
       fill: "isit_answer",
@@ -87,9 +110,9 @@ Plot.plot({
       strokeWidth: 0.75,
       r: 6,
     }),
-    Plot.tip(statsAll, tipTemplate),
+    Plot.tip(currentStats, tipTemplate),
     // enlarge dot you're pointing to
-    Plot.dot(statsAll, Plot.pointer({
+    Plot.dot(currentStats, Plot.pointer({
       x: "lon",
       y: "lat",
       fill: "isit_answer",
@@ -101,7 +124,7 @@ Plot.plot({
       r: 12,
     })),
     // enlargen clickable areas with invisible voronoi polys
-    Plot.voronoi(statsAll, {
+    Plot.voronoi(currentStats, {
       x: "lon",
       y: "lat",
       fill: "transparent",
@@ -134,9 +157,17 @@ tipTemplate = Plot.pointer({
   x: "lon",
   y: "lat",
   channels: {
+    place: {
+      label: "",
+      value: d => d.isit_label,
+    },
     label: {
       label: "",
-      value: d => d.isit_label + ": " + d.isit_comment
+      value: d => d.isit_comment
+    },
+    separator: {
+      label: "",
+      value: d => ""
     },
     isit_maximum: {
       label: "Max:",
@@ -156,7 +187,6 @@ tipTemplate = Plot.pointer({
   lineWidth: 20,
   lineHeight: 1.25,
   pointerSize: 0,
-  // fill: white,
   fillOpacity: 0.8,
   strokeOpacity: 0
 })
