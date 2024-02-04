@@ -2,7 +2,7 @@
 //| label: import-infra
 import { aq, op } from "@uwdata/arquero"
 
-bucket_base = "https://isithot-data.s3.ap-southeast-2.amazonaws.com/www/"
+bucket_base = "https://d33173dkfxwa5x.cloudfront.net/www/"
 
 FA = FileAttachment
 ```
