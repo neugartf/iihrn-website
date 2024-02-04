@@ -6,7 +6,7 @@ statsPlace = FA(bucket_base + "stats/stats_" + stationId + ".json").json()
 ```
 
 ::::::{.column-screen style="height: 95svh;"}
-:::::{.column-body style="display: flex; flex-flow: column nowrap; justify-content: space-around; text-align: center; font-weight: bold; font-size: 250%;"}
+:::::{.iihrn-headlines .column-body style="display: flex; flex-flow: column nowrap; justify-content: space-around; text-align: center; font-weight: bold;"}
 
 Is it hot in ${statsPlace.isit_label} right now?
 
@@ -27,8 +27,10 @@ answers = ({
 html`<span class="iihrn-answer" style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2}); color: ${answers[statsPlace.isit_answer].color};">${statsPlace.isit_answer}</span>`
 ```
 
-${statsPlace.isit_comment}
-
+```{ojs}
+//| label: comment
+md`${statsPlace.isit_comment}`
+```
 
 ```{=html}
 <a id="btn-digdeeper" href="#detail">

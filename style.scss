@@ -17,22 +17,22 @@ $primary: #343a40;
 /*-- scss:rules --*/
 
 main {
-
   margin-bottom: 0;
+}
+  
+h1 {
+  font-weight: bold;
+  text-align: center;
+}
 
-  h1 {
-    font-weight: bold;
-    text-align: center;
-  }
+.iihrn-headlines {
 
-  .iihrn-answer {
+  font-size: 250%;
+
+  #answer span {
     font-size: 200%;
-  }
-
-  .iihrn-answer,
-  .iihrn-comment {
-    padding: 10px 30px;
-    border-radius: 120px;
+    border-radius: 1em;
+    padding: 0.1em 0.5em;
   }
   
   .iihrn-figure {
@@ -40,17 +40,39 @@ main {
       width: 100%;
     }
   }
+}
 
-  .iihrn-map svg {
-    margin-inline: auto;
-    margin-bottom: 3.5em;
+@include media-breakpoint-down(md) {
+  .iihrn-headlines {
+    font-size: 175%;
   }
-
-  // hide code chunks and ojs errors
-  .sourceCode, .callout-important {
-    display: none;
+  #answer span {
+    font-size: 175%;
   }
 }
+
+@include media-breakpoint-down(sm) {
+  .iihrn-headlines {
+    font-size: 150%;
+  }
+  #answer span {
+    font-size: 150%;
+  }
+}
+
+.iihrn-map svg {
+  margin-inline: auto;
+  margin-bottom: 3.5em;
+}
+
+// hide code chunks and ojs errors
+.sourceCode, .callout-important {
+  display: none;
+}
+
+
+
+
 
 /* station search */
 
