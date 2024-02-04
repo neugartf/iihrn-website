@@ -1,6 +1,8 @@
 # Is It Hot Right Now? website
 
-To render the website to `/_site`, ensure `locations.json` is present and then run:
+The IIHRN website is built with [Quarto](https://quarto.org).
+
+To render the website to `/_site`, run:
 
 ```bash
 quarto run populate-places.ts && quarto render
