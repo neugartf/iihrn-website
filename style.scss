@@ -121,6 +121,16 @@ main {
   }
 }
 
+/* dig deeper button */
+
+#btn-digdeeper {
+    background: linear-gradient(to bottom, #333, #666);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 250%;
+}
+
 footer {
 
   .nav-footer {
