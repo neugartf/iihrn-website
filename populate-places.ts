@@ -28,8 +28,8 @@ async function writePlaceDoc(place) {
 // 1. download locations from s3 bucket
 console.log("Downloading IIHRN location list...")
 const locationsReq = await fetch(
-  "https://isithot-data.s3.ap-southeast-2.amazonaws.com/" +
-  "www/stats/stats_all.json");
+  "https://d33173dkfxwa5x.cloudfront.net/www/" +
+  "stats/stats_all.json");
 const locationsObj = await locationsReq.json();
 
 // shift station id keys to object properties and create slugs
