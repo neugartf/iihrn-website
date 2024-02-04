@@ -2,8 +2,10 @@
 ::::{.column-page-inset .grid}
 :::{.g-col-12 .g-col-md-4}
 
-:::{style="display:flex; flex-direction: column; justify-content: center; height: 100%;"}
-# Here's how the rest of Australia looks today.
+:::{style="display:flex; flex-direction: column; justify-content: center; text-align: center; height: 100%;"}
+# Here's how the rest of Australia looks today so far.
+
+Our day starts at midnight, so some places might still be warming up.
 :::
 
 :::
@@ -74,13 +76,6 @@ Plot.plot({
       fill: "#00000009",
       stroke: "#dddddd"
     }),
-    Plot.voronoi(statsAll, {
-      x: "lon",
-      y: "lat",
-      fill: "transparent",
-      stroke: "transparent",
-      href: d => "/places/" + d.slug,
-    }),
     Plot.dot(statsAll, {
       x: "lon",
       y: "lat",
@@ -90,25 +85,41 @@ Plot.plot({
         "black" :
         "#00000099",
       strokeWidth: 0.75,
-      r: "isit_answer",
+      r: 6,
     }),
-    Plot.tip(statsAll, tipTemplate)
+    Plot.tip(statsAll, tipTemplate),
+    // enlarge dot you're pointing to
+    Plot.dot(statsAll, Plot.pointer({
+      x: "lon",
+      y: "lat",
+      fill: "isit_answer",
+      stroke: d =>
+        d.isit_answer == "Hell no!" || d.isit_answer == "Hell yeah!" ?
+        "black" :
+        "#00000099",
+      strokeWidth: 0.75,
+      r: 12,
+    })),
+    // enlargen clickable areas with invisible voronoi polys
+    Plot.voronoi(statsAll, {
+      x: "lon",
+      y: "lat",
+      fill: "transparent",
+      stroke: "transparent",
+      href: d => "/places/" + d.slug,
+    }),
+
   ],
   color: {
     type: "ordinal",
     domain: answer_domain,
     range: ["#2166acff",
-            "#67a9cfbb",
-            "#d1e5f0bb",
-            "#f7f7f7bb",
-            "#fddbc7bb",
-            "#ef8a62bb",
+            "#67a9cfff",
+            "#d1e5f0ff",
+            "#f7f7f7ff",
+            "#fddbc7ff",
+            "#ef8a62ff",
             "#b2182bff"]
-  },
-  r: {
-    type: "ordinal",
-    domain: answer_domain,
-    range: [8, 5, 5, 5, 5, 5, 8]
   },
   height: 600
 })
@@ -143,7 +154,11 @@ tipTemplate = Plot.pointer({
     y: null
   },
   lineWidth: 20,
-  lineHeight: 1.25
+  lineHeight: 1.25,
+  pointerSize: 0,
+  // fill: white,
+  fillOpacity: 0.8,
+  strokeOpacity: 0
 })
 ```
 
