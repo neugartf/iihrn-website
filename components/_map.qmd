@@ -5,7 +5,14 @@
 :::{style="display:flex; flex-direction: column; justify-content: center; text-align: center; height: 100%;"}
 # Here's how the rest of Australia looks today so far.
 
-Our day starts at midnight, so some places might still be warming up.
+```{ojs}
+//| label: time-of-day-message
+nowHour = (new Date()).getUTCHours()
+nowHour >= 10 && nowHour <= 22 ?
+  md`Some places may still be cooling off as the night continues.` :
+  md`Some places may still be heating up as the day continues.`
+```
+
 :::
 
 :::
