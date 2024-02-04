@@ -113,6 +113,56 @@ main {
   }
 }
 
+.tmaxmin-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  
+  .tmaxmin-chip {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+
+    #tmax-2, #tmin-2 {
+      font-size: 75%;
+      color: grey;
+    }
+  
+  }
+}
+
+.tavg-block {
+  margin-top: 2em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center ;
+
+  #tavg-1 {
+    
+    text-align: center;
+
+    span {
+      display: inline-block;
+      font-weight: bold;
+      padding: 5px 15px;
+      border-radius: 1em;
+      font-size: 125%;
+    }
+  }
+  
+  #tavg-2 {
+    text-align: center;
+    font-size: 75%;
+    color: grey;
+  }
+}
+
+
 /* map */
 
 #draw-map {

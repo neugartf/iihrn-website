@@ -47,7 +47,7 @@ ${statsPlace.isit_comment}
 
 ::::{.grid}
 
-:::{.g-col-12 .g-col-md-4}
+:::{.g-col-12 .g-col-md-4 style="margin-block: auto;"}
 
 ```{ojs}
 //| label: datetime-formatting
@@ -56,14 +56,52 @@ tmaxWhen = new Date(Date.parse(statsPlace.isit_maximum_dt || null))
 tminWhen = new Date(Date.parse(statsPlace.isit_minimum_dt || null))
 
 tmaxWhenFriendly = isFinite(tmaxWhen) ?
-  "(" + datefns.formatRelative(tmaxWhen, new Date()) + ")" : ""
+  datefns.formatRelative(tmaxWhen, new Date()) : ""
 tminWhenFriendly = isFinite(tminWhen) ?
-  "(" + datefns.formatRelative(tminWhen, new Date()) + ")" : ""
+  datefns.formatRelative(tminWhen, new Date()) : ""
 
 percentRating = statsPlace.isit_average.toFixed(1) + "%"
 ```
 
-Today's maximum temperature so far is <strong> ${statsPlace.isit_maximum} °C</strong> ${tmaxWhenFriendly}, and the minimum overnight was <strong> ${statsPlace.isit_minimum} °C</strong> ${tminWhenFriendly}. The average of the two is <strong> ${statsPlace.isit_current} °C</strong>, which is hotter than <strong> ${percentRating} </strong> of daily average temperatures at <strong> ${statsPlace.isit_label}</strong> for this time of year over the period 1939–2021. The bloody hot and cold days (top and bottom 5%, respectively) are outside the dotted lines. 
+::::{.tmaxmin-block}
+
+:::{.tmaxmin-chip}
+
+<i class="bi bi-brightness-high"></i>
+
+```{ojs}
+//| label: tmax
+
+md`${statsPlace.isit_maximum} °C  `
+md`${tmaxWhenFriendly}`
+```
+
+:::
+
+:::{.tmaxmin-chip}
+
+<i class="bi bi-moon"></i>
+
+```{ojs}
+//| label: tmin
+
+md`${statsPlace.isit_minimum} °C  `
+md`${tminWhenFriendly}`
+```
+
+:::
+
+::::
+
+::::{.tavg-block}
+
+```{ojs}
+//| label: tavg
+html`<span style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2}); color: ${answers[statsPlace.isit_answer].color};">${statsPlace.isit_current} °C</span><br>`
+md`Average so far<br>hotter than **${percentRating}** of days.`
+```
+
+::::
 
 :::
 
@@ -81,7 +119,7 @@ md`![](${bucket_base + "plots/timeseries/timeseries-" + stationId + ".png"})`
 
 ::::{.grid style="margin-top: 2rem;"}
 
-:::{.g-col-12 .g-col-md-4}
+:::{.g-col-12 .g-col-md-4 style="margin-block: auto;"}
 
 This is the distribution of temperatures typical for this time of year, which we've defined as a seven day window either side of today. Just like a bell curve, the plot is higher at more common temperatures and lower at rare temperatures.
 
