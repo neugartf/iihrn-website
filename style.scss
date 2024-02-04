@@ -203,10 +203,24 @@ footer {
     padding-inline-start: 0;
     gap: 10px;
 
-    img {
-      width: 25px;
-      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+    li a {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      text-decoration: none;
+      gap: 5px;
+      
+      img {
+        width: 25px;
+        filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+      }
+
+      span {
+        font-weight: normal;
+        font-size: 75%;
+      }
     }
+
   }
 
 }
