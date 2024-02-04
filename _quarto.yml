@@ -34,7 +34,8 @@ website:
           </li>
         </ul>
     right: |
-        <p>Our data comes from the Bureau of Meteorology's <a href="http://www.bom.gov.au/climate/change/acorn-sat/">ACORN-SAT</a> and latest xml feeds. Our plots are <a href="https://isithotrightnow.com/licence">free to share for non-commercial purposes</a>.</p>
+        <p>Our data comes from the Bureau of Meteorology's <a href="http://www.bom.gov.au/climate/change/acorn-sat/">ACORN-SAT</a> and latest XML feeds.</p>
+        <p>Our graphics are <a href="/licence">free to share for non-commercial purposes</a>.</p>
         <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" alt="Creative Commons Attribution Non-Commercial 4.0 badge" style="width:80px"/></a>
 
 format:
