@@ -39,7 +39,7 @@ statsAll = {
       isit_maximum: d => op.parse_float(d.isit_maximum),
       isit_minimum: d => op.parse_float(d.isit_minimum),
       max_when: d => op.parse_date(d.isit_maximum_dt),
-      min_when: d => op.parse_date(d.isit_maximum_dt),
+      min_when: d => op.parse_date(d.isit_minimum_dt),
       slug: d =>
         op.replace(
           op.replace(
