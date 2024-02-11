@@ -16,6 +16,12 @@ $primary: #343a40;
 
 /*-- scss:rules --*/
 
+// hide code chunks and ojs errors
+// DEBUG - comment out to see errors
+.sourceCode, .callout-important {
+  display: none;
+}
+
 main {
   margin-bottom: 0;
 }
@@ -25,13 +31,27 @@ h1 {
   text-align: center;
 }
 
+.answer_icon_and_label {
+  display: flex;
+  flex-direction: row nowrap;
+  align-items: center;
+  padding: 0;
+}
+
+.answer-icon {
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  border: 1px solid #00000099;
+  padding: 0;
+}
+
 .iihrn-headlines {
 
   font-size: 250%;
 
   #answer span {
     font-size: 200%;
-    border-radius: 1em;
     padding: 0.1em 0.5em;
   }
   
@@ -65,15 +85,6 @@ h1 {
   margin-inline: auto;
   margin-bottom: 3.5em;
 }
-
-// hide code chunks and ojs errors
-.sourceCode, .callout-important {
-  display: none;
-}
-
-
-
-
 
 /* station search */
 
