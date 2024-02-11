@@ -155,7 +155,8 @@ We've compared every day this year at <strong> ${statsPlace.isit_label}</strong>
 //| label: hw
 //| classes: iihrn-figure
 //| echo: false
-md`![](${bucket_base + "plots/heatmap/heatmap-" + stationId + ".png"})`
+heatmapYear = (new Date()).toLocaleString("en-US", {timeZone: "Australia/Melbourne", year: "numeric"})
+md`![](${bucket_base + "plots/heatmap/heatmap-" + stationId + "-" + heatmapYear + ".png"})`
 ```
 
 ::::
