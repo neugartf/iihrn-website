@@ -13,6 +13,7 @@ Is it hot in ${statsPlace.isit_label} right now?
 ```{ojs}
 //| label: answer
 
+// not using background gradients anymore, just fill2
 answers = ({
   "Hell no!":   {color: "white",   fill1: "#5287d1", fill2: "#2166ac" },
   "No!":        {color: "white",   fill1: "#a2cdeb", fill2: "#67a9cf" },
@@ -23,10 +24,9 @@ answers = ({
   "Hell yeah!": {color: "white",   fill1: "#d1231d", fill2: "#b2182b" }
 })
 
-
 html`
 <div class="answer-icon-and-label">
-  <span class="answer-icon" style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2});">
+  <span class="answer-icon" style="background-color: ${answers[statsPlace.isit_answer].fill2};">
   </span>
   <span>${statsPlace.isit_answer}</span>
 </div>`
@@ -106,7 +106,7 @@ md`${tminWhenFriendly}`
 //| label: tavg
 html`
 <div class="answer-icon-and-label">
-  <span class="answer-icon" style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2});"></span>
+  <span class="answer-icon" style="background-color: ${answers[statsPlace.isit_answer].fill2};"></span>
   <span>${statsPlace.isit_current.toFixed(1)} °C</span>
 </div>`
 md`Average so far<br>hotter than **${percentRating}** of days.`
