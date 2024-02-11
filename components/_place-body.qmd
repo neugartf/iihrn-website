@@ -39,7 +39,7 @@ md`${statsPlace.isit_comment}`
 
 ```{=html}
 <a id="btn-digdeeper" href="#detail">
-  <i class="bi bi-arrow-down-circle-fill" style="background: linear-gradient(to bottom, #333, #555);"></i>
+  <i class="bi bi-arrow-down-circle-fill"></i>
 </a>
 ```
 
