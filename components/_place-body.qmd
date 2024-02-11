@@ -25,8 +25,8 @@ answers = ({
 
 
 html`
-<div class="answer_icon_and_label">
-  <span class="answer_icon" style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2});">
+<div class="answer-icon-and-label">
+  <span class="answer-icon" style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2});">
   </span>
   <span>${statsPlace.isit_answer}</span>
 </div>`
@@ -105,8 +105,8 @@ md`${tminWhenFriendly}`
 ```{ojs}
 //| label: tavg
 html`
-<div class="answer_icon_and_label">
-  <span class="answer_icon" style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2});"></span>
+<div class="answer-icon-and-label">
+  <span class="answer-icon" style="background: linear-gradient(to bottom, ${answers[statsPlace.isit_answer].fill1}, ${answers[statsPlace.isit_answer].fill2});"></span>
   <span>${statsPlace.isit_current.toFixed(1)} °C</span>
 </div>`
 md`Average so far<br>hotter than **${percentRating}** of days.`
