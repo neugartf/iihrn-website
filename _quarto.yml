@@ -33,6 +33,12 @@ website:
               <span>Spain</span>
             </a>
           </li>
+          <li>
+            <a href="https://scp.geographie.rub.de/isithot/lmss">
+              <img src="/assets/flags/bochum.svg">
+              <span>Bochum</span>
+            </a>
+          </li>
         </ul>
     right: |
         <p>Our data comes from the Bureau of Meteorology's <a href="http://www.bom.gov.au/climate/change/acorn-sat/">ACORN-SAT</a> and latest XML feeds.</p>
