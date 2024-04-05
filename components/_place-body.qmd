@@ -74,19 +74,6 @@ percentRating = statsPlace.isit_average.toFixed(1) + "%"
 
 :::{.tmaxmin-chip}
 
-<i class="bi bi-brightness-high"></i>
-
-```{ojs}
-//| label: tmax
-
-md`${statsPlace.isit_maximum} °C  `
-md`${tmaxWhenFriendly}`
-```
-
-:::
-
-:::{.tmaxmin-chip}
-
 <i class="bi bi-moon"></i>
 
 ```{ojs}
@@ -94,6 +81,19 @@ md`${tmaxWhenFriendly}`
 
 md`${statsPlace.isit_minimum} °C  `
 md`${tminWhenFriendly}`
+```
+
+:::
+
+:::{.tmaxmin-chip}
+
+<i class="bi bi-brightness-high"></i>
+
+```{ojs}
+//| label: tmax
+
+md`${statsPlace.isit_maximum} °C  `
+md`${tmaxWhenFriendly}`
 ```
 
 :::
@@ -109,7 +109,7 @@ html`
   <span class="answer-icon" style="background-color: ${answers[statsPlace.isit_answer].fill2};"></span>
   <span>${statsPlace.isit_current.toFixed(1)} °C</span>
 </div>`
-md`Average so far<br>hotter than **${percentRating}** of days.`
+md`Average so far<br>hotter than **${percentRating}** of days for this time of year.`
 ```
 
 ::::
