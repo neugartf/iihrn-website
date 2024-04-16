@@ -3,12 +3,6 @@ pagetitle: "Map - Is It Hot Right Now"
 search: false 
 ---
 
-:::{.callout-warning collapse="true"}
-## Temporary service disruption
-
-We're experiencing some temporary problems at the moment; data might be a bit older than usual. We should have it fixed soon!
-:::
-
 {{< include /components/_imports.qmd >}}
 
 {{< include /components/_map.qmd >}}
