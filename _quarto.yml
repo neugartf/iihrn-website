@@ -8,6 +8,7 @@ project:
 
 website:
   title: "Is it hot right now?"
+  site-url: "https://isithotrightnow.com"
   search:
     type: textbox
   google-analytics: "G-3EDWFZHK7Y"
