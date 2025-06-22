@@ -9,6 +9,7 @@ project:
 website:
   title: "Is it hot right now?"
   site-url: "https://isithotrightnow.com"
+  favicon: /assets/iihrn-favicon-96p.png
   search:
     type: textbox
   google-analytics: "G-3EDWFZHK7Y"
