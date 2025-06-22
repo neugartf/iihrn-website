@@ -9,6 +9,7 @@ project:
 website:
   title: "Is it hot right now?"
   site-url: "https://isithotrightnow.com"
+  favicon: /assets/iihrn-favicon-96p.png
   search:
     type: textbox
   google-analytics: "G-3EDWFZHK7Y"
@@ -25,22 +26,8 @@ website:
     collapse: false
   page-footer:
     left: |
-        <p>By <a href="https://theurbanist.com.au/about">Mat Lipson</a>, <a href="https://steefancontractor.github.io/my_website/">Steefan Contractor</a> and <a href="https://jamesgoldie.dev">James Goldie</a>. <a href="mailto:isithotrightnow@gmail.com">Get in touch!</a></p>
-        <p>See websites from our international colleagues:</p>
-        <ul id="flags">
-          <li>
-            <a href="https://hoyextremo.com/">
-              <img src="/assets/flags/es.svg">
-              <span>Spain</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://scp.geographie.rub.de/isithot/lmss">
-              <img src="/assets/flags/bochum.svg">
-              <span>Bochum</span>
-            </a>
-          </li>
-        </ul>
+        <p style="font-size: 1.5em;">By <a href="https://theurbanist.com.au/about">Mat Lipson</a>, <a href="https://steefancontractor.github.io/my_website/">Steefan Contractor</a> and <a href="https://jamesgoldie.dev">James Goldie</a>.</p>
+        <p style="font-size: 1.5em;"><a href="mailto:isithotrightnow@gmail.com">Get in touch!</a></p>
     right: |
         <p>Our data comes from the Bureau of Meteorology's <a href="http://www.bom.gov.au/climate/change/acorn-sat/">ACORN-SAT</a> and latest XML feeds.</p>
         <p>Our graphics are <a href="/licence">free to share for non-commercial purposes</a>.</p>

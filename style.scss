@@ -22,8 +22,11 @@ $primary: #343a40;
   display: none;
 }
 
-main {
+#quarto-content main.content {
   margin-bottom: 0;
+
+  // no gap before site footer
+  grid-row: content-top / screen-end;
 }
   
 h1 {
@@ -220,6 +223,48 @@ h1 {
     font-size: 175%;
 }
 
+/* international sites */
+
+#international-section {
+  background-color: #535c65;
+  color: white;
+  padding: 2em;
+  text-align: center;
+
+  .flags {
+    list-style: none;
+    
+    ul {
+      list-style: none;
+      padding-inline-start: 0;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      gap: 1em;
+  
+      li a {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-decoration: none;
+        gap: 0.5em;
+        color: white;
+        
+        img {
+          width: 25px;
+          filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+        }
+  
+        span {
+          font-weight: normal;
+          font-size: 75%;
+        }
+      }
+    }
+
+  }
+}
+
 footer {
 
   .nav-footer {
@@ -234,34 +279,6 @@ footer {
       text-decoration: underline;
     }
   }
-
-  #flags {
-    list-style: none;
-    display: flex;
-    flex-flow: row wrap;
-    padding-inline-start: 0;
-    gap: 10px;
-
-    li a {
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-      text-decoration: none;
-      gap: 5px;
-      
-      img {
-        width: 25px;
-        filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
-      }
-
-      span {
-        font-weight: normal;
-        font-size: 75%;
-      }
-    }
-
-  }
-
 }
 
 /* misc */
