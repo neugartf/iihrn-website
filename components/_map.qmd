@@ -71,7 +71,7 @@ staleStats = statsAll.filter(d => d.max_stale || d.min_stale)
 //| classes: iihrn-map
 //| echo: true
 //| error: true
-australia = FileAttachment("/assets/germany.geojson").json()
+australia = FileAttachment("assets/germany.geojson").json()
 Plot = import("https://esm.run/@observablehq/plot")
 
 answer_domain = [
