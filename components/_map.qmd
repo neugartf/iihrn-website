@@ -69,9 +69,9 @@ staleStats = statsAll.filter(d => d.max_stale || d.min_stale)
 ```{ojs}
 //| label: draw-map
 //| classes: iihrn-map
-//| echo: true
-//| error: true
-australia = FileAttachment("assets/germany.geojson").json()
+//| echo: false
+//| error: false
+germany = FileAttachment("/assets/germany.geojson").json()
 Plot = import("https://esm.run/@observablehq/plot")
 
 answer_domain = [
@@ -91,7 +91,7 @@ Plot.plot({
   },
   marks: [
     // Plot.graticule(),
-    Plot.geo(australia, {
+    Plot.geo(germany, {
       fill: "#00000009",
       stroke: "#dddddd"
     }),
