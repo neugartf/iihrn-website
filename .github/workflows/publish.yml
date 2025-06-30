@@ -17,7 +17,7 @@ jobs:
         with:
           version: 1.5.5
 
-      - name: Populate places
+      - name: Populate place
         run: quarto run populate-places.ts
 
       - name: Render and Publish 
