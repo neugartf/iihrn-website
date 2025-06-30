@@ -22,7 +22,6 @@ nowHour >= 10 && nowHour <= 22 ?
 //| label: load-map-data
 //| echo: false
 //| error: false
-
 statsAllRaw = FA(bucket_base + "stats/stats_all.json").json()
 
 // statsAllRaw is an object with keys by station id, but we
@@ -70,11 +69,9 @@ staleStats = statsAll.filter(d => d.max_stale || d.min_stale)
 ```{ojs}
 //| label: draw-map
 //| classes: iihrn-map
-//| echo: false
-//| error: false
-
-australia = FileAttachment("/assets/australia.geojson").json()
-
+//| echo: true
+//| error: true
+australia = FileAttachment("/assets/germany.geojson").json()
 Plot = import("https://esm.run/@observablehq/plot")
 
 answer_domain = [
@@ -89,8 +86,8 @@ answer_domain = [
 Plot.plot({
   projection: {
     type: "equirectangular",
-    rotate: [-133, 28],
-    domain: d3.geoCircle().center([133, -28]).radius(18)()
+    rotate: [-10.4515,  -51.1657],
+    domain: d3.geoCircle().center([10.4515, 51.1657]).radius(4.25)(),
   },
   marks: [
     // Plot.graticule(),
@@ -151,7 +148,7 @@ Plot.plot({
             "#ef8a62ff",
             "#b2182bff"]
   },
-  height: 600
+  height: 600,
 })
 
 ```

@@ -2,17 +2,17 @@ project:
   type: website
   post-render: replace-search-index.ts
   resources:
-    - "/assets/australia.geojson"
+    - "/assets/germany.geojson"
     - "/assets/locations.json"
     - "/assets/iihrn-social-card.png"
 
 website:
   title: "Is it hot right now?"
-  site-url: "https://isithotrightnow.com"
+  site-url: "https://dynamic-manatee-765ec3.netlify.app"
   favicon: /assets/iihrn-favicon-96p.png
   search:
     type: textbox
-  google-analytics: "G-3EDWFZHK7Y"
+  google-analytics: ""
   open-graph:
     description: Is it hot right now, or does it just feel like it?
     image: "/assets/iihrn-social-card.png"

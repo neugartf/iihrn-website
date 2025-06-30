@@ -3,7 +3,7 @@
 // 1. download locations from s3 bucket
 console.log("Downloading IIHRN location list...")
 const locationsReq = await fetch(
-  "https://d33173dkfxwa5x.cloudfront.net/www/" +
+  "https://isithot-data.s3.fr-par.scw.cloud/www/" +
   "stats/stats_all.json");
 const locationsObj = await locationsReq.json();
 

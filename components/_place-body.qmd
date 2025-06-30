@@ -58,6 +58,7 @@ md`${statsPlace.isit_comment}`
 
 ```{ojs}
 //| label: datetime-formatting
+
 datefns = import("https://cdn.skypack.dev/date-fns@3.3.1?min")
 tmaxWhen = new Date(Date.parse(statsPlace.isit_maximum_dt || null))
 tminWhen = new Date(Date.parse(statsPlace.isit_minimum_dt || null))
