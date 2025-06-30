@@ -165,7 +165,7 @@ We've compared every day this year at <strong> ${statsPlace.isit_label}</strong>
 //| label: hw
 //| classes: iihrn-figure
 //| echo: false
-heatmapYear = (new Date()).toLocaleString("en-US", {timeZone: "Australia/Melbourne", year: "numeric"})
+heatmapYear = (new Date()).toLocaleString("en-US", {timeZone: "Europe/Berlin", year: "numeric"})
 md`![](${bucket_base + "plots/heatmap/heatmap-" + stationId + "-" + heatmapYear + ".png"})`
 ```
 

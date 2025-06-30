@@ -3,7 +3,7 @@
 :::{.g-col-12 .g-col-md-4}
 
 :::{style="display:flex; flex-direction: column; justify-content: center; text-align: center; height: 100%;"}
-# Here's how the rest of Australia looks today so far.
+# Here's how the rest of Germany looks today so far.
 
 ```{ojs}
 //| label: time-of-day-message
