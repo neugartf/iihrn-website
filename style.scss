@@ -28,7 +28,7 @@ $primary: #343a40;
   // no gap before site footer
   grid-row: content-top / screen-end;
 }
-  
+
 h1 {
   font-weight: bold;
   text-align: center;
@@ -108,7 +108,7 @@ h1 {
 }
 
 #quarto-search::before {
-  content: 'Search places';
+  content: 'Orte suchen';
   font-size: 90%;
 }
 
