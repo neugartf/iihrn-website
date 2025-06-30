@@ -5,8 +5,6 @@ project:
     - "/assets/germany.geojson"
     - "/assets/locations.json"
     - "/assets/iihrn-social-card.png"
-execute:
-  freeze: auto
 website:
   title: "Is it hot right now?"
   site-url: "https://dynamic-manatee-765ec3.netlify.app"
