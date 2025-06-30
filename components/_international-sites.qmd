@@ -1,7 +1,7 @@
 :::::{.iihrn-section #international-section}
 ::::{.column-body}
 
-[Wirf einen Blick auf die Websites anderer Länder]{.strong .small}
+[Wirf einen Blick auf die Websites anderer Mitstreiter]{.strong .small}
 
 :::{.flags}
 - [![Spain](/assets/flags/es.svg) Spanien](https://hoyextremo.com/)

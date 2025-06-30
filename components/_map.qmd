@@ -3,14 +3,14 @@
 :::{.g-col-12 .g-col-md-4}
 
 :::{style="display:flex; flex-direction: column; justify-content: center; text-align: center; height: 100%;"}
-# Here's how the rest of Germany looks today so far.
+# So sieht der Rest von Deutschland heute bisher aus.
 
 ```{ojs}
 //| label: time-of-day-message
 nowHour = (new Date()).getUTCHours()
 nowHour >= 10 && nowHour <= 22 ?
-  md`Some places may still be cooling off as the night continues.` :
-  md`Some places may still be heating up as the day continues.`
+  md`Mancherorts kann es im Laufe der Nacht noch abkühlen.` :
+  md`Mancherorts kann es im Laufe des Tages noch wärmer werden.`
 ```
 
 :::

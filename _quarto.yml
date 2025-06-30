@@ -20,7 +20,7 @@ website:
         <p style="font-size: 1.5em;">Vielen Dank an <a href="https://theurbanist.com.au/about">Mat Lipson</a>, <a href="https://steefancontractor.github.io/my_website/">Steefan Contractor</a> und <a href="https://jamesgoldie.dev">James Goldie</a> für die ursprüngliche Idee.</p>
     right: |
         <p>Unsere Daten stammen vom Deutschen Wetterdienst und deren <a href="https://www.dwd.de/DE/leistungen/opendata/opendata.html">OpenData Programm</a>.</p>
-        <p>Unsere Grafiken sind für<a href="/licence">nicht-kommerzielle Zwecke frei zugänglich</a>.</p>
+        <p>Unsere Grafiken sind für <a href="/licence">nicht-kommerzielle Zwecke frei zugänglich</a>.</p>
         <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" alt="Creative Commons Attribution Non-Commercial 4.0 badge" style="width:80px"/></a>
 
 format:
