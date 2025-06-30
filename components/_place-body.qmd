@@ -8,20 +8,20 @@ statsPlace = FA(bucket_base + "stats/stats_" + stationId + ".json").json()
 ::::::{.column-screen style="height: 95svh;"}
 :::::{.iihrn-headlines .column-body style="display: flex; flex-flow: column nowrap; justify-content: space-around; text-align: center; font-weight: bold;"}
 
-Is it hot in ${statsPlace.isit_label} right now?
+Ist es heute zu heiß in ${statsPlace.isit_label} ?
 
 ```{ojs}
 //| label: answer
 
 // not using background gradients anymore, just fill2
 answers = ({
-  "Hell no!":   {color: "white",   fill1: "#5287d1", fill2: "#2166ac" },
-  "No!":        {color: "white",   fill1: "#a2cdeb", fill2: "#67a9cf" },
-  "Nope":       {color: "#333333", fill1: "#f5f8fa", fill2: "#d1e5f0" },
-  "Not really": {color: "#333333", fill1: "#f7f7f7", fill2: "#ebebeb" },
-  "Yup":        {color: "#333333", fill1: "#fddcca", fill2: "#f7cfb7" },
-  "Yeah!":      {color: "white",   fill1: "#de7b49", fill2: "#fc946a" },
-  "Hell yeah!": {color: "white",   fill1: "#d1231d", fill2: "#b2182b" }
+  "Auf gar keinen Fall!":   {color: "white",   fill1: "#5287d1", fill2: "#2166ac" },
+  "Nein!":        {color: "white",   fill1: "#a2cdeb", fill2: "#67a9cf" },
+  "Nee":       {color: "#333333", fill1: "#f5f8fa", fill2: "#d1e5f0" },
+  "Nicht wirklich": {color: "#333333", fill1: "#f7f7f7", fill2: "#ebebeb" },
+  "Jup":        {color: "#333333", fill1: "#fddcca", fill2: "#f7cfb7" },
+  "Ziemlich!":      {color: "white",   fill1: "#de7b49", fill2: "#fc946a" },
+  "Verdammt viel!": {color: "white",   fill1: "#d1231d", fill2: "#b2182b" }
 })
 
 html`
@@ -50,7 +50,7 @@ md`${statsPlace.isit_comment}`
 
 :::::{.column-page}
 
-# Here's how today compares... {#detail}
+# So sieht es heute im Vergleich aus... {#detail}
 
 ::::{.grid}
 
@@ -110,7 +110,7 @@ html`
   <span class="answer-icon" style="background-color: ${answers[statsPlace.isit_answer].fill2};"></span>
   <span>${statsPlace.isit_current.toFixed(1)} °C</span>
 </div>`
-md`Average so far<br>hotter than **${percentRating}** of days for this time of year.`
+md`Durchschnitt bisher<br>heißer als **${percentRating}** der Tage für diese Zeit im Jahr.`
 ```
 
 ::::
@@ -133,7 +133,7 @@ md`![](${bucket_base + "plots/timeseries/timeseries-" + stationId + ".png"})`
 
 :::{.g-col-12 .g-col-md-4 style="margin-block: auto;"}
 
-This is the distribution of temperatures typical for this time of year, which we've defined as a seven day window either side of today. Just like a bell curve, the plot is higher at more common temperatures and lower at rare temperatures.
+Dies ist die Verteilung der für diese Jahreszeit typischen Temperaturen, die wir als ein Fenster von sieben Tagen beiderseits des heutigen Tages definiert haben. Wie bei einer Glockenkurve ist die Kurve bei häufigeren Temperaturen höher und bei seltenen Temperaturen niedriger.
 
 :::
 
@@ -157,9 +157,9 @@ md`![](${bucket_base + "plots/distribution/distribution-" + stationId + ".png"})
 
 ::::{.column-page .container}
 
-# ... and the rest of the year.
+# ... und der Rest vom Jahr.
 
-We've compared every day this year at <strong> ${statsPlace.isit_label}</strong> to similar times of year in the past. Red days were hot compared to records; blue days were cold. 
+Wir haben jeden Tag in diesem Jahr in <strong> ${statsPlace.isit_label}</strong> mit ähnlichen Zeiten in der Vergangenheit verglichen. Rote Tage waren im Vergleich zu den Aufzeichnungen heiß, blaue Tage waren kalt.
 
 ```{ojs}
 //| label: hw
