@@ -18,6 +18,7 @@ website:
   page-footer:
     left: |
         <p style="font-size: 1.5em;">Vielen Dank an <a href="https://theurbanist.com.au/about">Mat Lipson</a>, <a href="https://steefancontractor.github.io/my_website/">Steefan Contractor</a> und <a href="https://jamesgoldie.dev">James Goldie</a> für die ursprüngliche Idee.</p>
+        <p style="font-size: 1.5em;">Implementierung für Deutschland von <a href="https://blog.neugartf.com">Fabian Neugart</a></p>
     right: |
         <p>Unsere Daten stammen vom Deutschen Wetterdienst und deren <a href="https://www.dwd.de/DE/leistungen/opendata/opendata.html">OpenData Programm</a>.</p>
         <p>Unsere Grafiken sind für <a href="/licence">nicht-kommerzielle Zwecke frei zugänglich</a>.</p>

@@ -19,9 +19,9 @@ answers = ({
   "Nein!":        {color: "white",   fill1: "#a2cdeb", fill2: "#67a9cf" },
   "Nee":       {color: "#333333", fill1: "#f5f8fa", fill2: "#d1e5f0" },
   "Nicht wirklich": {color: "#333333", fill1: "#f7f7f7", fill2: "#ebebeb" },
-  "Jup":        {color: "#333333", fill1: "#fddcca", fill2: "#f7cfb7" },
+  "Jepp":        {color: "#333333", fill1: "#fddcca", fill2: "#f7cfb7" },
   "Ziemlich!":      {color: "white",   fill1: "#de7b49", fill2: "#fc946a" },
-  "Verdammt viel!": {color: "white",   fill1: "#d1231d", fill2: "#b2182b" }
+  "Absolut!": {color: "white",   fill1: "#d1231d", fill2: "#b2182b" }
 })
 
 html`

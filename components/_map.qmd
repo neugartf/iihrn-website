@@ -79,9 +79,9 @@ answer_domain = [
          "Nein!",
          "Nee",
          "Nicht wirklich",
-         "Jup",
+         "Jepp",
          "Ziemlich!",
-         "Verdammt viel!"]
+         "Absolut!"]
 
 Plot.plot({
   projection: {
