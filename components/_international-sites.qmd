@@ -4,7 +4,7 @@
 [Dieses Projekt gibt es auch für andere Länder]{.strong .small}
 
 :::{.flags}
-- [![Australien](/assets/flags/es.svg) Australien](https://isithotrightnow.com/)
+- [![Australien](/assets/flags/au.svg) Australien](https://isithotrightnow.com/)
 - [![Spanien](/assets/flags/es.svg) Spanien](https://hoyextremo.com/)
 - [![UK](/assets/flags/gb.svg) UK](https://istheukhotrightnow.com/)
 - [![Bochum](/assets/flags/bochum.svg) Bochum](https://scp.geographie.rub.de/isithot/lmss)
