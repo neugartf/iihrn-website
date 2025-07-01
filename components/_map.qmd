@@ -75,13 +75,13 @@ germany = FileAttachment("/assets/germany.geojson").json()
 Plot = import("https://esm.run/@observablehq/plot")
 
 answer_domain = [
-   "Auf gar keinen Fall!",
-         Nein!",
-         Nee",
-         Nicht wirklich",
-         Jup",
-         Ziemlich!",
-         Verdammt viel!"]
+         "Auf gar keinen Fall!",
+         "Nein!",
+         "Nee",
+         "Nicht wirklich",
+         "Jup",
+         "Ziemlich!",
+         "Verdammt viel!"]
 
 Plot.plot({
   projection: {
