@@ -17,9 +17,9 @@ search: false
 
 stationId = {
   
-  // fallback to sydney?
+  // fallback to berlin?
   if (myLocation == null) {
-    return "023000"
+    return "00400"
   }
 
   // otherwise, find closest station on statsAll
