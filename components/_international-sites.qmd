@@ -1,7 +1,7 @@
 :::::{.iihrn-section #international-section}
 ::::{.column-body}
 
-[Wirf einen Blick auf die Websites anderer Mitstreiter]{.strong .small}
+[Dieses Projekt gibt es auch für andere Länder]{.strong .small}
 
 :::{.flags}
 - [![Australien](/assets/flags/es.svg) Australien](https://isithotrightnow.com/)
